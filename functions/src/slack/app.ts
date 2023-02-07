@@ -1,18 +1,18 @@
 import {App, ExpressReceiver} from "@slack/bolt";
 import {setMentionEvent} from "./events";
 
-export function createExpressReceiver(secret: string, token: string ): ExpressReceiver {
+export function createExpressReceiver(signingSecret: string, token: string, openAiApiKey: string ): ExpressReceiver {
   const expressReceiver = new ExpressReceiver({
-    signingSecret: secret,
+    signingSecret,
     endpoints: "/events",
     processBeforeResponse: true,
   });
 
   const app = new App({
     receiver: expressReceiver,
-    token: token,
+    token,
   });
 
-  setMentionEvent(app);
+  setMentionEvent(app, openAiApiKey);
   return expressReceiver;
 }
