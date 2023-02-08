@@ -1,0 +1,48 @@
+name: Deploy to firebase
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+      runs-on: ubuntu-latest
+      defaults:
+        run:
+          working-directory: ./functions
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.26.3
+          run_install: |
+                - recursive: true
+                  args: [--frozen-lockfile, --strict-peer-dependencies]
+                - args: [--global, firebase-tools]
+      - name: Exports credentials
+        run: |
+          echo "$GCP_SERVICE_ACCOUNT_KEY_BASE64" | base64 -d > /tmp/gcp_key.json
+        env:
+          GCP_SERVICE_ACCOUNT_KEY_BASE64: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY_BASE64 }}
+      - name: Deploy to firebase
+        run: |
+          firebase use FIREBASE_PROJECT_ID
+          firebase functions:config:set slack.secret="$SLACK_SIGNING_SECRET"
+          firebase functions:config:set slack.token="$SLACK_BOT_TOKEN"
+          firebase functions:config:set openai.api_key="$OPEN_AI_API_KEY"
+          firebase deploy --only functions
+        env:
+         GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp_key.json
+         FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+         OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
+         SLACK_SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
+         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
