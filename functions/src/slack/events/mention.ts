@@ -1,5 +1,5 @@
 import type {App} from "@slack/bolt";
-import {trimMentions, appLog, generateCacheKey, searchCache, fetchTextDavinci003, saveCache, errorLog} from "../../utils";
+import {trimMentions, appLog, searchCache, fetchTextDavinci003, saveCache, errorLog} from "../../utils";
 
 // Require app_mentions:read
 export function setMentionEvent(app: App, openAiApiKey: string) {
@@ -7,26 +7,25 @@ export function setMentionEvent(app: App, openAiApiKey: string) {
     const trimmedText = trimMentions(event.text);
     try {
       appLog("try fetch openai");
-      const cacheKey = generateCacheKey(trimmedText);
-      const cacheMessage = searchCache(cacheKey)?.message;
+      const cacheMessage = searchCache(event.ts)?.message;
       const fetchedMessage = cacheMessage ?? (await fetchTextDavinci003({prompt: trimmedText, apiKey: openAiApiKey}).then((response) => {
         appLog(response);
         appLog("finished fetch openai");
         return response.choices[0].text;
       }));
       if (cacheMessage !== undefined) {
-        appLog(`cache hit ${cacheKey}`);
+        appLog(`cache hit ${event.ts}`);
       }
-      saveCache(cacheKey, {message: fetchedMessage, said: false});
+      saveCache(event.ts, {message: fetchedMessage, said: false});
       appLog(fetchedMessage);
       appLog("try say slack");
-      const cacheSaid = searchCache(cacheKey)?.said;
+      const cacheSaid = searchCache(event.ts)?.said;
       if (cacheSaid === true) {
-        appLog(`said ${cacheKey}`);
+        appLog(`said ${event.ts}`);
         return;
       }
-      await say(`<@${event.user}> ${fetchedMessage}`);
-      saveCache(cacheKey, {message: fetchedMessage, said: false});
+      await say({thread_ts: event.ts, text: `<@${event.user}> ${fetchedMessage}`});
+      saveCache(event.ts, {message: fetchedMessage, said: false});
       appLog("said slack");
     } catch (error) {
       errorLog(error);
