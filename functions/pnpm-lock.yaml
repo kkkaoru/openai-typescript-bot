@@ -12,7 +12,6 @@ specifiers:
   firebase-admin: ^10.0.2
   firebase-functions: ^3.18.0
   firebase-functions-test: ^0.2.0
-  node-cache: 5.1.2
   openai: 3.1.0
   typescript: ^4.5.4
 
@@ -20,7 +19,6 @@ dependencies:
   '@slack/bolt': 3.12.2
   firebase-admin: 10.3.0_@firebase+app-types@0.8.1
   firebase-functions: 3.24.1_firebase-admin@10.3.0
-  node-cache: 5.1.2
   openai: 3.1.0
 
 devDependencies:
@@ -1063,11 +1061,6 @@ packages:
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
     optional: true
-
-  /clone/2.1.2:
-    resolution: {integrity: sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==}
-    engines: {node: '>=0.8'}
-    dev: false
 
   /color-convert/2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -2575,13 +2568,6 @@ packages:
   /negotiator/0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
-
-  /node-cache/5.1.2:
-    resolution: {integrity: sha512-t1QzWwnk4sjLWaQAS8CHgOJ+RAfmHpxFWmc36IWTiWHQfs0w5JDMBS1b1ZxQteo0vVVuWJvIUKHDkkeK7vIGCg==}
-    engines: {node: '>= 8.0.0'}
-    dependencies:
-      clone: 2.1.2
-    dev: false
 
   /node-fetch/2.6.9:
     resolution: {integrity: sha512-DJm/CJkZkRjKKj4Zi4BsKVZh3ValV5IR5s7LVZnW+6YMh0W1BfNA8XSs6DLMGYlId5F3KnA70uu2qepcR08Qqg==}

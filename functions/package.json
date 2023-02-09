@@ -22,7 +22,6 @@
     "@slack/bolt": "3.12.2",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.0",
-    "node-cache": "5.1.2",
     "openai": "3.1.0"
   },
   "devDependencies": {
