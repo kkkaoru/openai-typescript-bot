@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.3.0
+
+### Minor Changes
+
+- [`90e4072`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/90e40727ffd20cc64ec32f2efa98ead672852049) Thanks [@kkkaoru](https://github.com/kkkaoru)! - use chat completion
+
 ## 1.2.0
 
 ### Minor Changes
