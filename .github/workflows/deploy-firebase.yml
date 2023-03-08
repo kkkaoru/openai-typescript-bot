@@ -10,14 +10,14 @@ env:
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 jobs:
   deploy:
-      runs-on: ubuntu-latest
-      steps:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7.26.3
+          version: 7.29.1
       - name: Set Node.js 16.x
         uses: actions/setup-node@v3
         with:
@@ -41,8 +41,8 @@ jobs:
           firebase functions:config:set openai.api_key="$OPEN_AI_API_KEY"
           firebase deploy --only functions
         env:
-         GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp_key.json
-         FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-         OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
-         SLACK_SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
-         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp_key.json
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
+          SLACK_SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
