@@ -15,9 +15,16 @@ module.exports = {
         'unicorn/prefer-module': 'off',
       },
     },
+    {
+      files: ['**/packages/**/*.ts'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
   ],
   rules: {
     ...withVitest.rules,
     '@typescript-eslint/restrict-template-expressions': 'off',
+    'unicorn/no-await-expression-member': 'off',
   },
 };

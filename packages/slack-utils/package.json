@@ -26,11 +26,12 @@
   },
   "keywords": [],
   "devDependencies": {
-    "openai": "3.2.1",
-    "@slack/bolt": "3.12.2"
+    "@slack/bolt": "3.12.2",
+    "@slack/web-api": "6.8.1",
+    "openai": "3.2.1"
   },
   "peerDependencies": {
-    "openai": "^3.2.1",
-    "@slack/bolt": "^3.12.2"
+    "@slack/bolt": "^3.12.2",
+    "openai": "^3.2.1"
   }
 }

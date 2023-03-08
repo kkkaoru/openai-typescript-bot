@@ -1,5 +1,7 @@
 import type { App } from '@slack/bolt';
-import { fetchTextDavinci003 } from '../../openai/fetch-text-davinci-003';
+import { fetchChatCompletion } from '../../openai/chat-completion';
+import { convertChatCompletionMessages } from '../../openai/chat-completion/convert-messages';
+import { fetchThreadMessagesIfCan } from '../fetch/fetch-thred';
 import { trimMentions } from '../trim';
 
 export type SetMentionEventArgs = {
@@ -11,7 +13,7 @@ export type SetMentionEventArgs = {
 
 // Require app_mentions:read
 export function setMentionEvent({ app, openAiApiKey, appLog, errorLog }: SetMentionEventArgs) {
-  app.event('app_mention', async ({ event, say, context }) => {
+  app.event('app_mention', async ({ event, say, context, client }) => {
     appLog?.(event);
     appLog?.(context);
     const trimmedText = trimMentions(event.text);
@@ -21,16 +23,26 @@ export function setMentionEvent({ app, openAiApiKey, appLog, errorLog }: SetMent
       return;
     }
     try {
+      appLog?.('try fetch thread messages');
+      const threadMessages = await fetchThreadMessagesIfCan({
+        client,
+        channel: event.channel,
+        thread_ts: event.thread_ts,
+      });
+      appLog?.(threadMessages);
+      const messages = convertChatCompletionMessages({ threadMessages });
       // Fetch OpenAI
       appLog?.('try fetch openai');
-      const message = await fetchTextDavinci003({ prompt: trimmedText, apiKey: openAiApiKey }).then((response) => {
-        appLog?.(response);
-        appLog?.('finished fetch openai');
-        return response.choices[0].text;
+      appLog?.(trimmedText);
+      const messageFromBot = await fetchChatCompletion({
+        messages,
+        apiKey: openAiApiKey,
+        userContent: trimmedText,
+        userName: event.user,
       });
       // Say Slack
       appLog?.('try say slack');
-      const sayArgs = { thread_ts: event.ts, text: `<@${event.user}> ${message}` };
+      const sayArgs = { thread_ts: event.ts, text: messageFromBot };
       await say(sayArgs).then(() => {
         appLog?.(sayArgs);
       });
