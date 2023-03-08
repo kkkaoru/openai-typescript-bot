@@ -1,0 +1,28 @@
+{
+  "name": "@kkkaoru/slack-utils",
+  "version": "0.0.0",
+  "author": {
+    "name": "kkkaoru",
+    "email": "ockacru+git@gmail.com",
+    "url": "https://twitter.com/kkk4oru"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/kkkaoru/frontend-configs",
+  "bugs": {
+    "url": "https://github.com/kkkaoru/frontend-configs/issues"
+  },
+  "homepage": "https://github.com/kkkaoru/frontend-configsy#readme",
+  "main": "./dist/slack-utils.umd.js",
+  "module": "./dist/slack-utils.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/slack-utils.mjs",
+      "require": "./slack-utils.umd.js"
+    }
+  },
+  "scripts": {
+    "package-build": "vite build"
+  },
+  "keywords": []
+}
