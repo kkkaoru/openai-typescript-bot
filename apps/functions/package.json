@@ -20,10 +20,8 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "@slack/bolt": "3.12.2",
     "firebase-admin": "11.5.0",
     "firebase-functions": "4.2.1",
-    "openai": "3.2.1",
     "@kkkaoru/slack-utils": "1.1.1"
   },
   "devDependencies": {
