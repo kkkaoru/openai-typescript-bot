@@ -1,0 +1,4 @@
+{
+  "extends": "@kkkaoru/tsconfig/base.json",
+  "include": ["."],
+}
