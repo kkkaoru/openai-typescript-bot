@@ -4,8 +4,14 @@
   "description": "",
   "scripts": {
     "build": "turbo run build",
+    "packages-build": "turbo run package-build",
     "eslint": "turbo run eslint",
-    "prettier": "turbo run prettier"
+    "prettier": "turbo run prettier",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish",
+    "changeset-init": "changeset init",
+    "prepare": "pnpm run packages-build"
   },
   "keywords": [],
   "author": {
@@ -16,12 +22,15 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@changesets/cli": "2.26.0",
     "@kkkaoru/eslint-config": "1.0.2",
     "@kkkaoru/prettier-config": "1.0.0",
     "@kkkaoru/tsconfig": "1.0.1",
     "esbuild": "0.17.6",
     "turbo": "1.8.3",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "vite": "4.1.4",
+    "vite-plugin-dts": "2.1.0"
   },
   "packageManager": "pnpm@7.26.3"
 }

@@ -3,6 +3,7 @@
   "pipeline": {
     "build": {},
     "eslint": {},
-    "prettier": {}
+    "prettier": {},
+    "package-build": {}
   }
 }
