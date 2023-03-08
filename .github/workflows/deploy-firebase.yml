@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '.github/workflows/deploy-firebase.yml'
+      - 'apps/functions/*'
+
 env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
