@@ -1,7 +1,6 @@
 import * as functions from 'firebase-functions';
 
-import { createExpressReceiver } from '@kkkaoru/slack-utils';
-import { appLog, errorLog, generateConfig } from './utils';
+import { appLog, errorLog, generateConfig, createExpressReceiver } from './utils';
 
 const config = generateConfig();
 
