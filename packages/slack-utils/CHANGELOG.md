@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.2.0
+
+### Minor Changes
+
+- [`7ac0333`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/7ac0333dbc9fd02befb22642cff99138d7d02667) Thanks [@kkkaoru](https://github.com/kkkaoru)! - export dependencies
+
 ## 1.1.1
 
 ### Patch Changes
