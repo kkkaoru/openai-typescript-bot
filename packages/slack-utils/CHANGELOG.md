@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.1.1
+
+### Patch Changes
+
+- [`76fa360`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/76fa360b09ca898ec5abf0fc014b329e020d203f) Thanks [@kkkaoru](https://github.com/kkkaoru)! - update slack utils
+
 ## 1.1.0
 
 ### Minor Changes
