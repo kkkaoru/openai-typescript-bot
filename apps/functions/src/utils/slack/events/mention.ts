@@ -1,5 +1,6 @@
 import type { App } from '@slack/bolt';
-import { trimMentions, fetchTextDavinci003 } from '../../utils';
+import { trimMentions } from '../trim/trim-mentions';
+import { fetchTextDavinci003 } from '../../openai/fetch-text-davinci-003';
 
 export type SetMentionEventArgs = {
   app: App;
