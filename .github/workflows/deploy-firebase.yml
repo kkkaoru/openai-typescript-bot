@@ -8,7 +8,7 @@ on:
     paths:
       - '.github/workflows/deploy-firebase.yml'
       - 'pnpm-lock.yaml'
-      - 'apps/functions/*'
+      - 'apps/**/*'
 
 env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
