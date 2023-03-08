@@ -9,6 +9,9 @@ export default defineConfig({
       name: 'SlackUtils',
       fileName: 'slack-utils',
     },
+    rollupOptions: {
+      external: ['@slack/bolt', 'openai'],
+    },
   },
   plugins: [dts()],
 });
