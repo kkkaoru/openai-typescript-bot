@@ -1,7 +1,7 @@
 {
   "name": "functions",
   "scripts": {
-    "lint": "eslint --ext .js,.ts .",
+    "eslint": "eslint --ext .js,.ts .",
     "type-check": "tsc --noEmit",
     "build": "esbuild --bundle --outdir=lib --minify --sourcemap --format=cjs --platform=node src/index.ts",
     "build:watch": "esbuild --bundle --outdir=lib --minify --sourcemap --format=cjs --platform=node --watch src/index.ts",
@@ -9,7 +9,8 @@
     "shell": "pnpm run build && firebase functions:shell",
     "start": "pnpm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "prettier": "prettier --write --check src"
   },
   "engines": {
     "node": "16",

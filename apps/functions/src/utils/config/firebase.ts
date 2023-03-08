@@ -1,13 +1,13 @@
-import { config } from "firebase-functions";
+import { config } from 'firebase-functions';
 
 type ConfigSlack = {
   secret: string;
   token: string;
-}
+};
 
 type ConfigOpenAI = {
   api_key: string;
-}
+};
 
 type AppConfig = {
   slack: ConfigSlack;

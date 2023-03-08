@@ -1,10 +1,10 @@
-import {Configuration, OpenAIApi} from "openai";
-import type {CreateCompletionResponse} from "openai";
+import { Configuration, OpenAIApi } from 'openai';
+import type { CreateCompletionResponse } from 'openai';
 
 const TEXT_DAVINCI_003_ARGS = {
-  model: "text-davinci-003",
+  model: 'text-davinci-003',
   maxTokens: 4000,
-  defaultPrompt: "Please tell me about ChatGPT.",
+  defaultPrompt: 'Please tell me about ChatGPT.',
 };
 
 type TextDavinchArgs = {
@@ -12,9 +12,14 @@ type TextDavinchArgs = {
   apiKey: string;
   temperature?: number;
   maxTokens?: number;
-}
+};
 
-export async function fetchTextDavinci003({prompt, apiKey, maxTokens = TEXT_DAVINCI_003_ARGS.maxTokens, temperature = 0.8}: TextDavinchArgs): Promise<CreateCompletionResponse> {
+export async function fetchTextDavinci003({
+  prompt,
+  apiKey,
+  maxTokens = TEXT_DAVINCI_003_ARGS.maxTokens,
+  temperature = 0.8,
+}: TextDavinchArgs): Promise<CreateCompletionResponse> {
   const configuration = new Configuration({
     apiKey,
   });

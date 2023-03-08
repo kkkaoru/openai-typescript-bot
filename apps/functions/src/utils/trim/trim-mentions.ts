@@ -1,4 +1,3 @@
-
 export function trimMentions(text: string) {
-  return text.replace(/(<@.*?>\s?)/g, "");
+  return text.replace(/(<@.*?>\s?)/g, '');
 }

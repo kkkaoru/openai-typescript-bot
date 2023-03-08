@@ -5,12 +5,14 @@ importers:
   .:
     specifiers:
       '@kkkaoru/eslint-config': 1.0.2
+      '@kkkaoru/prettier-config': 1.0.0
       '@kkkaoru/tsconfig': 1.0.1
       esbuild: 0.17.6
       turbo: 1.8.3
       typescript: ^4.5.4
     devDependencies:
       '@kkkaoru/eslint-config': 1.0.2_typescript@4.9.5
+      '@kkkaoru/prettier-config': 1.0.0
       '@kkkaoru/tsconfig': 1.0.1
       esbuild: 0.17.6
       turbo: 1.8.3
@@ -501,6 +503,12 @@ packages:
       - jest
       - supports-color
       - typescript
+    dev: true
+
+  /@kkkaoru/prettier-config/1.0.0:
+    resolution: {integrity: sha512-xu7Ps0Y3QpL9i7EbFe8vgutnm7jt5HWHorbCdEwuoQNQdWyFIhv9bhRVtQHz/krEO+pkAC0J2vzjNDVlU2ckTw==}
+    dependencies:
+      prettier: 2.8.4
     dev: true
 
   /@kkkaoru/tsconfig/1.0.1:
@@ -3441,6 +3449,12 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier/2.8.4:
+    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /promise.allsettled/1.0.6:

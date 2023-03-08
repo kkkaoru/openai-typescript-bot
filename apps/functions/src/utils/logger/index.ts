@@ -1,1 +1,1 @@
-export * from "./firebase-logger";
+export * from './firebase-logger';

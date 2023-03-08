@@ -1,1 +1,1 @@
-export * from "./trim-mentions";
+export * from './trim-mentions';

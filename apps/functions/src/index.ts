@@ -1,9 +1,9 @@
-import * as functions from "firebase-functions";
+import * as functions from 'firebase-functions';
 
-import {createExpressReceiver} from "./slack/app";
-import { generateConfig } from "./utils/config/firebase";
+import { createExpressReceiver } from './slack/app';
+import { generateConfig } from './utils/config/firebase';
 
 const config = generateConfig();
 
 const slackHandler = createExpressReceiver(config.slack.secret, config.slack.token, config.openai.api_key);
-export const slack = functions.region("asia-northeast1").https.onRequest(slackHandler.app);
+export const slack = functions.region('asia-northeast1').https.onRequest(slackHandler.app);

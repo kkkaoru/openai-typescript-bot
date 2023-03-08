@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "eslint": "turbo run eslint",
+    "prettier": "turbo run prettier"
   },
   "keywords": [],
   "author": {
@@ -15,6 +17,7 @@
   "private": true,
   "devDependencies": {
     "@kkkaoru/eslint-config": "1.0.2",
+    "@kkkaoru/prettier-config": "1.0.0",
     "@kkkaoru/tsconfig": "1.0.1",
     "esbuild": "0.17.6",
     "turbo": "1.8.3",
