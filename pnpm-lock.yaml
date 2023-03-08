@@ -27,6 +27,7 @@ importers:
   apps/functions:
     specifiers:
       '@firebase/app-types': 0.9.0
+      '@kkkaoru/slack-utils': 1.0.0
       '@slack/bolt': 3.12.2
       firebase-admin: 11.5.0
       firebase-functions: 4.2.1
@@ -34,6 +35,7 @@ importers:
       jest: 29.5.0
       openai: 3.2.1
     dependencies:
+      '@kkkaoru/slack-utils': link:../../packages/slack-utils
       '@slack/bolt': 3.12.2
       firebase-admin: 11.5.0
       firebase-functions: 4.2.1_firebase-admin@11.5.0
