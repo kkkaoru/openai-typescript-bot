@@ -1,7 +1,7 @@
 import type { WebClient } from '@slack/web-api';
 import type { AppMentionEvent } from '@slack/bolt';
 import type { Message } from '@slack/web-api/dist/response/ConversationsRepliesResponse';
-import { trimMentions } from '../trim';
+import { trimMentions } from '../utils/trim';
 
 type FetchThreadMessagesArgs = {
   client: WebClient;

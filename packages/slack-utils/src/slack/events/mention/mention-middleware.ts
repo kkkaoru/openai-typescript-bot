@@ -1,30 +1,15 @@
-import type { AllMiddlewareArgs, AppMentionEvent, SlackEventMiddlewareArgs } from '@slack/bolt';
-import { ConfigurationParameters } from 'openai';
-import {
-  fetchChatCompletion,
-  FetchChatCompletionArgs,
-  ChatCompletionOptionalParameters,
-} from '../../../openai/chat-completion';
-import { convertChatCompletionMessages, MaxMessages } from '../../../openai/chat-completion/convert-messages';
-import { fetchThreadMessagesIfCan } from '../../fetch/fetch-thred';
-import { makeUniqueMessages } from '../../unique/make-unique-messages';
-import { convertMessageFromMentionEvent } from './convert-event-to-message';
-
-export type OpenaiParameters = Pick<ConfigurationParameters, 'apiKey'> & ChatCompletionOptionalParameters & MaxMessages;
+import type { AppLogger } from '../../../types/logger';
+import type { OpenaiParameters } from '../../../types/openai';
+import type { MiddlewareMentionArgs } from '../../../types/slack';
+import { answer } from './answer';
 
 export type GenerateMiddlewareMentionArgs = {
-  appLog?: (args: unknown) => unknown;
-  errorLog?: (args: unknown) => unknown;
   openai?: OpenaiParameters;
-};
-
-type MiddlewareMentionArgs = Omit<SlackEventMiddlewareArgs, 'event'> &
-  AllMiddlewareArgs & {
-    event: AppMentionEvent;
-  };
+} & AppLogger;
 
 export function generateMiddlewareMention({ appLog, errorLog, openai }: GenerateMiddlewareMentionArgs) {
-  return async ({ event, say, context, client }: MiddlewareMentionArgs) => {
+  return async (middlewareMentionArgs: MiddlewareMentionArgs) => {
+    const { event, context, say } = middlewareMentionArgs;
     appLog?.(event);
     appLog?.(context);
     if (context.retryNum !== undefined) {
@@ -33,36 +18,10 @@ export function generateMiddlewareMention({ appLog, errorLog, openai }: Generate
       return;
     }
     try {
-      appLog?.('try fetch thread messages');
-      const threadMessages = await fetchThreadMessagesIfCan({
-        client,
-        channel: event.channel,
-        thread_ts: event.thread_ts,
-      });
-      appLog?.(threadMessages);
-      const mentionMessage = convertMessageFromMentionEvent(event);
-      const uniqueMessages = makeUniqueMessages([...threadMessages, mentionMessage]);
-      const messages = convertChatCompletionMessages({
-        slackMessages: uniqueMessages,
-        maxMessagesCount: openai?.maxMessagesCount,
-      });
-      // Fetch OpenAI
-      appLog?.('try fetch openai');
-      const fetchChatCompletionArgs: FetchChatCompletionArgs = {
-        messages,
-        ...openai,
-      };
-      appLog?.(fetchChatCompletionArgs);
-      const messageFromBot = await fetchChatCompletion(fetchChatCompletionArgs);
-      // Say Slack
-      appLog?.('try say slack');
-      const sayArgs = { thread_ts: event.ts, text: messageFromBot };
-      await say(sayArgs).then(() => {
-        appLog?.(sayArgs);
-      });
+      answer({ ...middlewareMentionArgs, openai });
     } catch (error) {
       errorLog?.(error);
-      await say(`${error?.toString()}`);
+      await say({ thread_ts: event.ts, text: `${error?.toString()}` });
     }
   };
 }
