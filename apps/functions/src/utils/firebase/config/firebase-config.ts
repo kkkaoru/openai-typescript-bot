@@ -1,4 +1,5 @@
 import { config } from 'firebase-functions';
+import { CreateExpressReceiverArgs } from '@kkkaoru/slack-utils';
 
 type ConfigSlack = {
   secret: string;
@@ -7,6 +8,7 @@ type ConfigSlack = {
 
 type ConfigOpenAI = {
   api_key: string;
+  max_tokens?: string;
 };
 
 type AppConfig = {
@@ -14,8 +16,12 @@ type AppConfig = {
   openai: ConfigOpenAI;
 };
 
-// const config = functions.config();
-// const slackHandler = createExpressReceiver(config.slack.secret, config.slack.token, config.openai.api_key);
-export function generateConfig(): AppConfig {
-  return config() as AppConfig;
+export function generateConfig(): CreateExpressReceiverArgs {
+  const configs = config() as AppConfig;
+  return {
+    signingSecret: configs.slack.secret,
+    token: configs.slack.token,
+    openAiApiKey: configs.openai.api_key,
+    max_tokens: Number.isNaN(Number(configs.openai?.max_tokens)) ? undefined : Number(configs.openai?.max_tokens),
+  };
 }

@@ -6,9 +6,7 @@ import { appLog, errorLog, generateConfig } from './utils';
 const config = generateConfig();
 
 const slackHandler = createExpressReceiver({
-  signingSecret: config.slack.secret,
-  token: config.slack.token,
-  openAiApiKey: config.openai.api_key,
+  ...config,
   appLog,
   errorLog,
 });
