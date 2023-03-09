@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.3.7
+
+### Patch Changes
+
+- [`8daab93`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/8daab93f31e8b71c67a64b58dc4d7e5eb34b8f5c) Thanks [@kkkaoru](https://github.com/kkkaoru)! - add retry function when errors
+
 ## 1.3.6
 
 ### Patch Changes
