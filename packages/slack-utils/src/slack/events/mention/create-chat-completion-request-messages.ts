@@ -1,11 +1,9 @@
 import { ChatCompletionRequestMessage } from 'openai';
 import type { WebClient } from '@slack/web-api';
 import type { AppMentionEvent } from '@slack/bolt';
-import { convertChatCompletionMessages, MaxMessages } from '../../../openai/chat-completion/convert-messages';
-import { fetchThreadMessagesIfCan } from '../../fetch/fetch-thread';
-import { makeUniqueMessages } from '../../utils/unique/make-unique-messages';
-import { convertMessageFromMentionEvent } from '../../utils/converter/convert-event-to-message';
-import { AppLogger } from '../../../types/logger';
+import { convertChatCompletionMessages, MaxMessages } from '../../../openai';
+import { fetchThreadMessagesIfCan, makeUniqueMessages, convertMessageFromMentionEvent } from '../../utils';
+import { AppLogger } from '../../../types';
 
 export type CreateChatCompletionRequestMessagesArgs = {
   client: WebClient;

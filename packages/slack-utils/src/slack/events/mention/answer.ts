@@ -1,9 +1,7 @@
-import { fetchChatCompletion, FetchChatCompletionArgs } from '../../../openai/chat-completion';
+import { fetchChatCompletion, FetchChatCompletionArgs } from '../../../openai';
 import { ChatCompletionRequestMessage } from 'openai';
 import { createChatCompletionRequestMessages } from './create-chat-completion-request-messages';
-import { AppLogger } from '../../../types/logger';
-import { OpenaiParameters } from '../../../types/openai';
-import { MiddlewareMentionArgs } from '../../../types/slack';
+import type { AppLogger, OpenaiParameters, MiddlewareMentionArgs } from '../../../types';
 
 export type AnswerArgs = {
   openai?: OpenaiParameters;

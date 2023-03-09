@@ -1,13 +1,12 @@
-import type { AppLogger } from '../../../types/logger';
-import type { OpenaiParameters } from '../../../types/openai';
-import type { MiddlewareMentionArgs } from '../../../types/slack';
-import { answer } from './answer';
+import type { AppLogger, OpenaiParameters, MiddlewareMentionArgs } from '../../../types';
+import { answer, AnswerArgs } from './answer';
 
 export type GenerateMiddlewareMentionArgs = {
   openai?: OpenaiParameters;
-} & AppLogger;
+} & AppLogger &
+  AnswerArgs;
 
-export function generateMiddlewareMention({ appLog, errorLog, openai }: GenerateMiddlewareMentionArgs) {
+export function generateMiddlewareMention({ appLog, errorLog, ...args }: GenerateMiddlewareMentionArgs) {
   return async (middlewareMentionArgs: MiddlewareMentionArgs) => {
     const { event, context, say } = middlewareMentionArgs;
     appLog?.(event);
@@ -18,7 +17,7 @@ export function generateMiddlewareMention({ appLog, errorLog, openai }: Generate
       return;
     }
     try {
-      answer({ ...middlewareMentionArgs, openai });
+      answer({ ...middlewareMentionArgs, ...args });
     } catch (error) {
       errorLog?.(error);
       await say({ thread_ts: event.ts, text: `${error?.toString()}` });

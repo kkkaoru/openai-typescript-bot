@@ -1,5 +1,5 @@
 import { ChatCompletionRequestMessage, ConfigurationParameters, CreateChatCompletionRequest } from 'openai';
-import { createOpenAIClient } from '../openai-client/create-openai-client';
+import { createOpenAIClient } from '../openai-client';
 import { CHAT_COMPLETION_SYSTEM_CONTENT } from './system-content';
 
 export type ChatCompletionOptionalParameters = {
