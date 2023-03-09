@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.3.1
+
+### Patch Changes
+
+- [`5e7e4ee`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/5e7e4ee03b2e677b61020b8b2569184c87aed181) Thanks [@kkkaoru](https://github.com/kkkaoru)! - can export max tokens
+
 ## 1.3.0
 
 ### Minor Changes
