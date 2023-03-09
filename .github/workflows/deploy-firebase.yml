@@ -48,6 +48,7 @@ jobs:
           firebase functions:config:set openai.temperature="$OPEN_AI_TEMPERATURE"
           firebase functions:config:set openai.top_p="$OPEN_AI_TOP_P"
           firebase functions:config:set openai.frequency_penalty="$OPEN_AI_FREQUENCY_PENALTY"
+          firebase functions:config:set openai.enabled_system_content="$OPEN_AI_ENABLED_SYSTEM_CONTENT"
           firebase deploy --only functions
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp_key.json
@@ -58,3 +59,4 @@ jobs:
           OPEN_AI_MAX_TOKENS: ${{ secrets.OPEN_AI_MAX_TOKENS }}
           OPEN_AI_TOP_P: ${{ secrets.OPEN_AI_TOP_P }}
           OPEN_AI_FREQUENCY_PENALTY: ${{ secrets.OPEN_AI_FREQUENCY_PENALTY }}
+          OPEN_AI_ENABLED_SYSTEM_CONTENT: ${{ secrets.OPEN_AI_ENABLED_SYSTEM_CONTENT }}
