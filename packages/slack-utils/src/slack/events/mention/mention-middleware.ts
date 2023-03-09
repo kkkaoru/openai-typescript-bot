@@ -9,11 +9,12 @@ import { convertChatCompletionMessages } from '../../../openai/chat-completion/c
 import { fetchThreadMessagesIfCan } from '../../fetch/fetch-thred';
 import { trimMentions } from '../../trim';
 
+export type OpenaiParameters = Pick<ConfigurationParameters, 'apiKey'> & ChatCompletionOptionalParameters;
+
 export type GenerateMiddlewareMentionArgs = {
-  openAiApiKey: string;
   appLog?: (args: unknown) => unknown;
   errorLog?: (args: unknown) => unknown;
-  openai?: Pick<ConfigurationParameters, 'apiKey'> & ChatCompletionOptionalParameters;
+  openai?: OpenaiParameters;
 };
 
 type MiddlewareMentionArgs = Omit<SlackEventMiddlewareArgs, 'event'> &

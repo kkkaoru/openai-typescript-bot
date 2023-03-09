@@ -44,12 +44,12 @@ export async function fetchChatCompletion({
     : [];
   const result = await client.createChatCompletion({
     model,
-    max_tokens,
-    temperature,
-    top_p,
-    n,
-    presence_penalty,
-    frequency_penalty,
+    max_tokens: Number.isNaN(max_tokens) ? 4096 : max_tokens,
+    temperature: Number.isNaN(temperature) ? 1 : temperature,
+    top_p: Number.isNaN(top_p) ? 1 : top_p,
+    n: Number.isNaN(n) ? 1 : n,
+    presence_penalty: Number.isNaN(presence_penalty) ? 0 : presence_penalty,
+    frequency_penalty: Number.isNaN(frequency_penalty) ? 0 : frequency_penalty,
     logit_bias,
     messages: [
       ...systemMessage,

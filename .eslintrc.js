@@ -22,6 +22,7 @@ module.exports = {
       },
     },
   ],
+  ignorePatterns: [...withVitest, '**/dist'],
   rules: {
     ...withVitest.rules,
     '@typescript-eslint/restrict-template-expressions': 'off',

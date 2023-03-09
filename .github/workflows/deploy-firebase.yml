@@ -41,9 +41,9 @@ jobs:
       - name: Deploy to firebase
         run: |
           firebase use "$FIREBASE_PROJECT_ID"
-          firebase functions:config:set slack.secret="$SLACK_SIGNING_SECRET"
+          firebase functions:config:set slack.signingSecret="$SLACK_SIGNING_SECRET"
           firebase functions:config:set slack.token="$SLACK_BOT_TOKEN"
-          firebase functions:config:set openai.api_key="$OPEN_AI_API_KEY"
+          firebase functions:config:set openai.apiKey="$OPEN_AI_API_KEY"
           firebase functions:config:set openai.max_tokens="$OPEN_AI_MAX_TOKENS"
           firebase deploy --only functions
         env:
