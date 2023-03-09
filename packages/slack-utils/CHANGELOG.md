@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.3.5
+
+### Patch Changes
+
+- [`103305d`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/103305d75b829453865366d1c05bddb7789ea19d) Thanks [@kkkaoru](https://github.com/kkkaoru)! - fix bug about number in payload
+
 ## 1.3.4
 
 ### Patch Changes
