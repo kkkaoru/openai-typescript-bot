@@ -2,23 +2,36 @@ import { ChatCompletionRequestMessage, ConfigurationParameters, CreateChatComple
 import { createOpenAIClient } from '../openai-client/create-openai-client';
 import { CHAT_COMPLETION_SYSTEM_CONTENT } from './system-content';
 
+export type ChatCompletionOptionalParameters = {
+  enabledSystemContent?: boolean;
+} & Pick<
+  CreateChatCompletionRequest,
+  'max_tokens' | 'temperature' | 'top_p' | 'presence_penalty' | 'frequency_penalty' | 'logit_bias' | 'n' | 'stop'
+>;
+
 export type FetchChatCompletionArgs = {
   model?: string;
   userContent: string;
   userName?: string;
   enabledSystemContent?: boolean;
 } & ConfigurationParameters &
-  Pick<CreateChatCompletionRequest, 'max_tokens' | 'temperature' | 'messages'>;
+  Pick<CreateChatCompletionRequest, 'messages'> &
+  ChatCompletionOptionalParameters;
 
 export async function fetchChatCompletion({
   apiKey,
   model = 'gpt-3.5-turbo',
-  max_tokens = 4000,
-  temperature = 0.8,
   messages,
   userContent,
   userName,
   enabledSystemContent = false,
+  max_tokens = 4096,
+  temperature = 1,
+  top_p = 1,
+  n = 1,
+  presence_penalty = 0,
+  frequency_penalty = 0,
+  logit_bias = undefined,
 }: FetchChatCompletionArgs): Promise<string | undefined> {
   const client = createOpenAIClient({ apiKey });
   const systemMessage: ChatCompletionRequestMessage[] = enabledSystemContent
@@ -33,6 +46,11 @@ export async function fetchChatCompletion({
     model,
     max_tokens,
     temperature,
+    top_p,
+    n,
+    presence_penalty,
+    frequency_penalty,
+    logit_bias,
     messages: [
       ...systemMessage,
       ...messages,
