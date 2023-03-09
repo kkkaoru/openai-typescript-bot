@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.3.2
+
+### Patch Changes
+
+- [`806df9f`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/806df9f06f3deab910d2c25fa5dbb41b395ffbce) Thanks [@kkkaoru](https://github.com/kkkaoru)! - can disable system content
+
 ## 1.3.1
 
 ### Patch Changes
