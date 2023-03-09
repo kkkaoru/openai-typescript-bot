@@ -1,5 +1,10 @@
-import type { AllMiddlewareArgs, App, AppMentionEvent, SlackEventMiddlewareArgs } from '@slack/bolt';
-import { fetchChatCompletion, FetchChatCompletionArgs } from '../../../openai/chat-completion';
+import type { AllMiddlewareArgs, AppMentionEvent, SlackEventMiddlewareArgs } from '@slack/bolt';
+import { ConfigurationParameters } from 'openai';
+import {
+  fetchChatCompletion,
+  FetchChatCompletionArgs,
+  ChatCompletionOptionalParameters,
+} from '../../../openai/chat-completion';
 import { convertChatCompletionMessages } from '../../../openai/chat-completion/convert-messages';
 import { fetchThreadMessagesIfCan } from '../../fetch/fetch-thred';
 import { trimMentions } from '../../trim';
@@ -8,19 +13,15 @@ export type GenerateMiddlewareMentionArgs = {
   openAiApiKey: string;
   appLog?: (args: unknown) => unknown;
   errorLog?: (args: unknown) => unknown;
-} & Pick<FetchChatCompletionArgs, 'max_tokens' | 'enabledSystemContent'>;
+  openai?: Pick<ConfigurationParameters, 'apiKey'> & ChatCompletionOptionalParameters;
+};
 
 type MiddlewareMentionArgs = Omit<SlackEventMiddlewareArgs, 'event'> &
   AllMiddlewareArgs & {
     event: AppMentionEvent;
   };
 
-export function generateMiddlewareMention({
-  openAiApiKey,
-  appLog,
-  errorLog,
-  max_tokens,
-}: GenerateMiddlewareMentionArgs) {
+export function generateMiddlewareMention({ appLog, errorLog, openai }: GenerateMiddlewareMentionArgs) {
   return async ({ event, say, context, client }: MiddlewareMentionArgs) => {
     appLog?.(event);
     appLog?.(context);
@@ -41,14 +42,14 @@ export function generateMiddlewareMention({
       const messages = convertChatCompletionMessages({ threadMessages });
       // Fetch OpenAI
       appLog?.('try fetch openai');
-      appLog?.(trimmedText);
-      const messageFromBot = await fetchChatCompletion({
+      const fetchChatCompletionArgs: FetchChatCompletionArgs = {
         messages,
-        apiKey: openAiApiKey,
         userContent: trimmedText,
         userName: event.user,
-        max_tokens,
-      });
+        ...openai,
+      };
+      appLog?.(fetchChatCompletionArgs);
+      const messageFromBot = await fetchChatCompletion(fetchChatCompletionArgs);
       // Say Slack
       appLog?.('try say slack');
       const sayArgs = { thread_ts: event.ts, text: messageFromBot };

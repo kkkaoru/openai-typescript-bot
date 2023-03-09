@@ -1,12 +1,14 @@
-import { App, ExpressReceiver } from '@slack/bolt';
+import { App, AppOptions, ExpressReceiver, ExpressReceiverOptions } from '@slack/bolt';
 import { setMentionEvent, SetMentionEventArgs } from '../events';
 
+export type SlackParameters = Pick<ExpressReceiverOptions, 'signingSecret'> & Pick<AppOptions, 'token'>;
+
 export type CreateExpressReceiverArgs = {
-  signingSecret: string;
-  token: string;
+  slack: SlackParameters;
 } & Omit<SetMentionEventArgs, 'app'>;
 
-export function createExpressReceiver({ signingSecret, token, ...args }: CreateExpressReceiverArgs): ExpressReceiver {
+export function createExpressReceiver({ slack, ...args }: CreateExpressReceiverArgs): ExpressReceiver {
+  const { signingSecret, token } = slack;
   const expressReceiver = new ExpressReceiver({
     signingSecret,
     endpoints: '/events',
