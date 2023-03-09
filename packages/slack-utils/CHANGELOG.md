@@ -1,5 +1,13 @@
 # @kkkaoru/slack-utils
 
+## 1.3.8
+
+### Patch Changes
+
+- [`3a5e30d`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/3a5e30d54a81a313d1c3c847dff11a1931dcdf30) Thanks [@kkkaoru](https://github.com/kkkaoru)! - can export answser args
+
+- [`2c47f78`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/2c47f782b04a40437c9fd7a3f071425d9a9104b5) Thanks [@kkkaoru](https://github.com/kkkaoru)! - fix trim mention
+
 ## 1.3.7
 
 ### Patch Changes
