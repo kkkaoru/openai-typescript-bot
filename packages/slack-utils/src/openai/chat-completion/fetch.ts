@@ -2,7 +2,7 @@ import { ConfigurationParameters, CreateChatCompletionRequest } from 'openai';
 import { createOpenAIClient } from '../openai-client/create-openai-client';
 import { CHAT_COMPLETION_SYSTEM_CONTENT } from './system-content';
 
-type FetchChatCompletionArgs = {
+export type FetchChatCompletionArgs = {
   model?: string;
   userContent: string;
   userName?: string;
@@ -12,7 +12,7 @@ type FetchChatCompletionArgs = {
 export async function fetchChatCompletion({
   apiKey,
   model = 'gpt-3.5-turbo',
-  max_tokens = 4096,
+  max_tokens = 4000,
   temperature = 0.8,
   messages,
   userContent,

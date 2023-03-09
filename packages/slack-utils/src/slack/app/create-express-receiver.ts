@@ -1,7 +1,7 @@
 import { App, ExpressReceiver } from '@slack/bolt';
 import { setMentionEvent, SetMentionEventArgs } from '../events';
 
-type CreateExpressReceiverArgs = {
+export type CreateExpressReceiverArgs = {
   signingSecret: string;
   token: string;
 } & Omit<SetMentionEventArgs, 'app'>;

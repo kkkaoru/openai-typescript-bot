@@ -1,19 +1,27 @@
-import type { App } from '@slack/bolt';
-import { fetchChatCompletion } from '../../openai/chat-completion';
-import { convertChatCompletionMessages } from '../../openai/chat-completion/convert-messages';
-import { fetchThreadMessagesIfCan } from '../fetch/fetch-thred';
-import { trimMentions } from '../trim';
+import type { AllMiddlewareArgs, App, AppMentionEvent, SlackEventMiddlewareArgs } from '@slack/bolt';
+import { fetchChatCompletion, FetchChatCompletionArgs } from '../../../openai/chat-completion';
+import { convertChatCompletionMessages } from '../../../openai/chat-completion/convert-messages';
+import { fetchThreadMessagesIfCan } from '../../fetch/fetch-thred';
+import { trimMentions } from '../../trim';
 
-export type SetMentionEventArgs = {
-  app: App;
+export type GenerateMiddlewareMentionArgs = {
   openAiApiKey: string;
   appLog?: (args: unknown) => unknown;
   errorLog?: (args: unknown) => unknown;
-};
+} & Pick<FetchChatCompletionArgs, 'max_tokens'>;
 
-// Require app_mentions:read
-export function setMentionEvent({ app, openAiApiKey, appLog, errorLog }: SetMentionEventArgs) {
-  app.event('app_mention', async ({ event, say, context, client }) => {
+type MiddlewareMentionArgs = Omit<SlackEventMiddlewareArgs, 'event'> &
+  AllMiddlewareArgs & {
+    event: AppMentionEvent;
+  };
+
+export function generateMiddlewareMention({
+  openAiApiKey,
+  appLog,
+  errorLog,
+  max_tokens,
+}: GenerateMiddlewareMentionArgs) {
+  return async ({ event, say, context, client }: MiddlewareMentionArgs) => {
     appLog?.(event);
     appLog?.(context);
     const trimmedText = trimMentions(event.text);
@@ -39,6 +47,7 @@ export function setMentionEvent({ app, openAiApiKey, appLog, errorLog }: SetMent
         apiKey: openAiApiKey,
         userContent: trimmedText,
         userName: event.user,
+        max_tokens,
       });
       // Say Slack
       appLog?.('try say slack');
@@ -50,5 +59,5 @@ export function setMentionEvent({ app, openAiApiKey, appLog, errorLog }: SetMent
       errorLog?.(error);
       await say(`${error?.toString()}`);
     }
-  });
+  };
 }
