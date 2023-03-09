@@ -1,14 +1,6 @@
-import * as functions from 'firebase-functions';
+import { createSlackRequestHandler } from './utils/firebase/handler/slack-request-handler';
+import { createSlackExpressReceiver } from './utils/firebase/receiver/slack-express-receiver';
 
-import { createExpressReceiver } from '@kkkaoru/slack-utils';
-import { appLog, errorLog, generateConfig } from './utils';
+const slackReceiver = createSlackExpressReceiver();
 
-const config = generateConfig();
-
-const slackHandler = createExpressReceiver({
-  ...config,
-  appLog,
-  errorLog,
-});
-
-export const slack = functions.region('asia-northeast1').https.onRequest(slackHandler.app);
+export const slack = createSlackRequestHandler(slackReceiver);

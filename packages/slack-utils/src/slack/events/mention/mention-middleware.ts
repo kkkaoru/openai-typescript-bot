@@ -5,11 +5,12 @@ import {
   FetchChatCompletionArgs,
   ChatCompletionOptionalParameters,
 } from '../../../openai/chat-completion';
-import { convertChatCompletionMessages } from '../../../openai/chat-completion/convert-messages';
+import { convertChatCompletionMessages, MaxMessages } from '../../../openai/chat-completion/convert-messages';
 import { fetchThreadMessagesIfCan } from '../../fetch/fetch-thred';
-import { trimMentions } from '../../trim';
+import { makeUniqueMessages } from '../../unique/make-unique-messages';
+import { convertMessageFromMentionEvent } from './convert-event-to-message';
 
-export type OpenaiParameters = Pick<ConfigurationParameters, 'apiKey'> & ChatCompletionOptionalParameters;
+export type OpenaiParameters = Pick<ConfigurationParameters, 'apiKey'> & ChatCompletionOptionalParameters & MaxMessages;
 
 export type GenerateMiddlewareMentionArgs = {
   appLog?: (args: unknown) => unknown;
@@ -26,7 +27,6 @@ export function generateMiddlewareMention({ appLog, errorLog, openai }: Generate
   return async ({ event, say, context, client }: MiddlewareMentionArgs) => {
     appLog?.(event);
     appLog?.(context);
-    const trimmedText = trimMentions(event.text);
     if (context.retryNum !== undefined) {
       // If when retry, not say
       appLog?.('not say');
@@ -40,13 +40,16 @@ export function generateMiddlewareMention({ appLog, errorLog, openai }: Generate
         thread_ts: event.thread_ts,
       });
       appLog?.(threadMessages);
-      const messages = convertChatCompletionMessages({ threadMessages });
+      const mentionMessage = convertMessageFromMentionEvent(event);
+      const uniqueMessages = makeUniqueMessages([...threadMessages, mentionMessage]);
+      const messages = convertChatCompletionMessages({
+        slackMessages: uniqueMessages,
+        maxMessagesCount: openai?.maxMessagesCount,
+      });
       // Fetch OpenAI
       appLog?.('try fetch openai');
       const fetchChatCompletionArgs: FetchChatCompletionArgs = {
         messages,
-        userContent: trimmedText,
-        userName: event.user,
         ...openai,
       };
       appLog?.(fetchChatCompletionArgs);

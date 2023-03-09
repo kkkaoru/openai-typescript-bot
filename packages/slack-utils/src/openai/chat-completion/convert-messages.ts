@@ -1,16 +1,23 @@
 import type { Message } from '@slack/web-api/dist/response/ConversationsRepliesResponse';
 import { ChatCompletionRequestMessage } from 'openai';
 
-type ConverterMessagesArgs = {
-  threadMessages: Message[];
-  maxLength?: number;
+export type MaxMessages = {
+  maxMessagesCount?: number | string;
 };
 
+type ConverterMessagesArgs = {
+  slackMessages: Message[];
+} & MaxMessages;
+
+const DEFAULT_MAX_MESSAGES_COUNT = 18;
+
 export function convertChatCompletionMessages({
-  threadMessages,
-  maxLength = 18,
+  slackMessages,
+  maxMessagesCount = DEFAULT_MAX_MESSAGES_COUNT,
 }: ConverterMessagesArgs): ChatCompletionRequestMessage[] {
-  return [...threadMessages].splice(maxLength * -1, threadMessages.length).map(
+  const maxCount = Number.isNaN(maxMessagesCount) ? DEFAULT_MAX_MESSAGES_COUNT : Number(maxMessagesCount);
+
+  return [...slackMessages].splice(maxCount * -1, slackMessages.length).map(
     (message): ChatCompletionRequestMessage => ({
       role: message.bot_id ? 'assistant' : 'user',
       content: message.text || '',

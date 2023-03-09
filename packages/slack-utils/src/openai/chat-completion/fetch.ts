@@ -3,7 +3,7 @@ import { createOpenAIClient } from '../openai-client/create-openai-client';
 import { CHAT_COMPLETION_SYSTEM_CONTENT } from './system-content';
 
 export type ChatCompletionOptionalParameters = {
-  enabledSystemContent?: boolean;
+  enabledSystemContent?: '' | boolean | string | null | undefined;
 } & Pick<
   CreateChatCompletionRequest,
   'max_tokens' | 'temperature' | 'top_p' | 'presence_penalty' | 'frequency_penalty' | 'logit_bias' | 'n' | 'stop'
@@ -11,9 +11,6 @@ export type ChatCompletionOptionalParameters = {
 
 export type FetchChatCompletionArgs = {
   model?: string;
-  userContent: string;
-  userName?: string;
-  enabledSystemContent?: boolean;
 } & ConfigurationParameters &
   Pick<CreateChatCompletionRequest, 'messages'> &
   ChatCompletionOptionalParameters;
@@ -22,8 +19,6 @@ export async function fetchChatCompletion({
   apiKey,
   model = 'gpt-3.5-turbo',
   messages,
-  userContent,
-  userName,
   enabledSystemContent = false,
   max_tokens = 4096,
   temperature = 1,
@@ -34,7 +29,7 @@ export async function fetchChatCompletion({
   logit_bias = undefined,
 }: FetchChatCompletionArgs): Promise<string | undefined> {
   const client = createOpenAIClient({ apiKey });
-  const systemMessage: ChatCompletionRequestMessage[] = enabledSystemContent
+  const systemMessage: ChatCompletionRequestMessage[] = Boolean(enabledSystemContent)
     ? [
         {
           role: 'system',
@@ -51,15 +46,7 @@ export async function fetchChatCompletion({
     presence_penalty: Number.isNaN(presence_penalty) ? 0 : Number(presence_penalty),
     frequency_penalty: Number.isNaN(frequency_penalty) ? 0 : Number(frequency_penalty),
     logit_bias,
-    messages: [
-      ...systemMessage,
-      ...messages,
-      {
-        role: 'user',
-        content: userContent,
-        name: userName,
-      },
-    ],
+    messages: [...systemMessage, ...messages],
   });
   return result.data.choices[0].message?.content;
 }
