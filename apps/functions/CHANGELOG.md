@@ -4,6 +4,13 @@
 
 ### Patch Changes
 
+- Updated dependencies [[`8daab93`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/8daab93f31e8b71c67a64b58dc4d7e5eb34b8f5c)]:
+  - @kkkaoru/slack-utils@1.3.7
+
+## null
+
+### Patch Changes
+
 - Updated dependencies [[`c180613`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/c18061365f0e6fde09bcc729f68e8386f540c490)]:
   - @kkkaoru/slack-utils@1.3.6
 
