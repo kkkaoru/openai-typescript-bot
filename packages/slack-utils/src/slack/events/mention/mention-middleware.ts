@@ -8,7 +8,7 @@ export type GenerateMiddlewareMentionArgs = {
   openAiApiKey: string;
   appLog?: (args: unknown) => unknown;
   errorLog?: (args: unknown) => unknown;
-} & Pick<FetchChatCompletionArgs, 'max_tokens'>;
+} & Pick<FetchChatCompletionArgs, 'max_tokens' | 'enabledSystemContent'>;
 
 type MiddlewareMentionArgs = Omit<SlackEventMiddlewareArgs, 'event'> &
   AllMiddlewareArgs & {
