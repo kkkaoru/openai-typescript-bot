@@ -1,6 +1,7 @@
 import type { WebClient } from '@slack/web-api';
 import type { AppMentionEvent } from '@slack/bolt';
 import type { Message } from '@slack/web-api/dist/response/ConversationsRepliesResponse';
+import { trimMentions } from '../trim';
 
 type FetchThreadMessagesArgs = {
   client: WebClient;
@@ -18,5 +19,7 @@ export async function fetchThreadMessagesIfCan({
   if (response.messages === undefined) {
     return [];
   }
-  return response.messages.sort((prev, cur) => Number(prev.ts) - Number(cur.ts));
+  return response.messages
+    .sort((prev, cur) => Number(prev.ts) - Number(cur.ts))
+    .map((message) => ({ ...message, text: trimMentions(message.text || '') }));
 }
