@@ -11,6 +11,7 @@ export type AnswerArgs = {
   retryText?: string;
   retryMessages?: ChatCompletionRequestMessage[];
   difficultyMessage?: string;
+  hasSaidRetryMessage?: boolean;
 } & AppLogger;
 
 export async function answer(args: MiddlewareMentionArgs & AnswerArgs) {
@@ -27,6 +28,7 @@ export async function answer(args: MiddlewareMentionArgs & AnswerArgs) {
     retryText = '...',
     retryMessages = undefined,
     difficultyMessage = 'I am sorry, but I am not good at answering this question.',
+    hasSaidRetryMessage = false,
   } = args;
   if (retryMessages !== undefined && retryMessages?.length === 0) {
     await say({ thread_ts: event.ts, text: difficultyMessage });
@@ -58,9 +60,11 @@ export async function answer(args: MiddlewareMentionArgs & AnswerArgs) {
     errorLog?.(error);
     appLog?.(`retry count is ${retryCount}`);
     if (retryCount <= retryMaxCount) {
-      await say({ thread_ts: event.ts, text: retryText });
+      if (!hasSaidRetryMessage) {
+        await say({ thread_ts: event.ts, text: retryText });
+      }
       setTimeout(() => {
-        answer({ ...args, retryCount: retryCount + 1, retryMessages: messages.slice(1) });
+        answer({ ...args, retryCount: retryCount + 1, retryMessages: messages.slice(1), hasSaidRetryMessage: true });
       }, retryDelayMs);
       return;
     }
