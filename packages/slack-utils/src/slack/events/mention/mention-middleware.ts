@@ -17,6 +17,7 @@ export function generateMiddlewareMention({ appLog, errorLog, ...args }: Generat
       return;
     }
     try {
+      appLog?.('try answer');
       answer({ ...middlewareMentionArgs, ...args });
     } catch (error) {
       errorLog?.(error);

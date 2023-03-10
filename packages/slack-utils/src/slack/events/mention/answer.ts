@@ -10,6 +10,7 @@ export type AnswerArgs = {
   retryDelayMs?: number;
   retryText?: string;
   retryMessages?: ChatCompletionRequestMessage[];
+  difficultyMessage?: string;
 } & AppLogger;
 
 export async function answer(args: MiddlewareMentionArgs & AnswerArgs) {
@@ -24,9 +25,11 @@ export async function answer(args: MiddlewareMentionArgs & AnswerArgs) {
     retryCount = 0,
     retryDelayMs = 1000,
     retryText = '...',
-    retryMessages,
+    retryMessages = undefined,
+    difficultyMessage = 'I am sorry, but I am not good at answering this question.',
   } = args;
-  if (retryMessages?.length === 0) {
+  if (retryMessages !== undefined && retryMessages?.length === 0) {
+    await say({ thread_ts: event.ts, text: difficultyMessage });
     throw new Error('messages is too difficult to understand');
   }
   const messages =
@@ -38,13 +41,16 @@ export async function answer(args: MiddlewareMentionArgs & AnswerArgs) {
     ...openai,
   };
   try {
+    // Fetch OpenAI
     appLog?.('try fetch openai');
     appLog?.(fetchChatCompletionArgs);
-    // Fetch OpenAI
     const message = await fetchChatCompletion(fetchChatCompletionArgs);
+    appLog?.('fetched openai');
+    appLog?.(message);
     // Say Slack
-    appLog?.('try say slack');
     const sayArgs = { thread_ts: event.ts, text: message };
+    appLog?.('try say slack');
+    appLog?.(sayArgs);
     await say(sayArgs).then(() => {
       appLog?.(sayArgs);
     });
