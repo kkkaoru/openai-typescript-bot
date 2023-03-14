@@ -7,4 +7,9 @@ module.exports = {
     ...withVitest.parserOptions,
     tsconfigRootDir: __dirname,
   },
+  rules: {
+    ...withVitest.rules,
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/naming-convention': 'off',
+  },
 };

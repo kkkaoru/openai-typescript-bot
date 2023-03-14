@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.3.12
+
+### Patch Changes
+
+- fix eslint
+
 ## 1.3.11
 
 ### Patch Changes

@@ -1,5 +1,5 @@
-import { fetchChatCompletion, FetchChatCompletionArgs } from '../../../openai';
 import { ChatCompletionRequestMessage } from 'openai';
+import { fetchChatCompletion, FetchChatCompletionArgs } from '../../../openai';
 import { createChatCompletionRequestMessages } from './create-chat-completion-request-messages';
 import type { AppLogger, OpenaiParameters, MiddlewareMentionArgs } from '../../../types';
 

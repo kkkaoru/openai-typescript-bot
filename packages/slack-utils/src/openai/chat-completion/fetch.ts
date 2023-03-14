@@ -29,7 +29,7 @@ export async function fetchChatCompletion({
   logit_bias = undefined,
 }: FetchChatCompletionArgs): Promise<string | undefined> {
   const client = createOpenAIClient({ apiKey });
-  const systemMessage: ChatCompletionRequestMessage[] = Boolean(enabledSystemContent)
+  const systemMessage: ChatCompletionRequestMessage[] = enabledSystemContent
     ? [
         {
           role: 'system',
