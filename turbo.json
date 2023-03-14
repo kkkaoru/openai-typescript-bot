@@ -4,6 +4,7 @@
     "build": {},
     "eslint": {},
     "prettier": {},
-    "package-build": {}
+    "package-build": {},
+    "test": {}
   }
 }

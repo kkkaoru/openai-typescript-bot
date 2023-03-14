@@ -5,11 +5,11 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'SlackUtils',
-      fileName: 'slack-utils',
+      name: 'OpenAIUtils',
+      fileName: 'openai-utils',
     },
     rollupOptions: {
-      external: ['@slack/bolt', 'openai'],
+      external: ['openai'],
     },
   },
 });

@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.3.11
+
+### Patch Changes
+
+- update sourcemap
+
 ## 1.3.10
 
 ### Patch Changes
