@@ -1,0 +1,4 @@
+{
+  "extends": "@kkkaoru/tsconfig/vitest/typescript-library-with-vitest.json",
+  "include": ["."]
+}

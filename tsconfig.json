@@ -1,4 +1,4 @@
 {
-  "extends": "@kkkaoru/tsconfig/base.json",
-  "include": ["."],
+  "extends": "@kkkaoru/tsconfig/vitest/base-with-vitest.json",
+  "include": ["."]
 }
