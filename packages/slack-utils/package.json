@@ -22,7 +22,12 @@
     }
   },
   "scripts": {
-    "package-build": "vite build"
+    "package-build": "pnpm run vite:build && pnpm run tsc",
+    "vitest": "vitest --config ../../vitest.config.js src",
+    "eslint": "eslint -c ./../../.eslintrc.js --max-warnings=0 --fix --ext .ts src",
+    "vite:build": "vite build",
+    "tsc": "tsc",
+    "prettier": "prettier --write --check src"
   },
   "keywords": [],
   "devDependencies": {
