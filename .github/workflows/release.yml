@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/release.yml'
       - '.changeset/*'
+      - 'package.json'
       - 'pnpm-lock.yaml'
       - 'turbo.json'
       - 'packages/**/*'

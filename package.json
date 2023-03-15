@@ -10,7 +10,8 @@
     "prettier": "turbo run prettier",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "prepare": "turbo run package-build"
   },
   "keywords": [],
   "author": {
