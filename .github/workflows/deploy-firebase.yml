@@ -12,10 +12,10 @@ on:
       - 'turbo.json'
       - 'firebase.json'
       - 'apps/**/*'
-
-env:
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+# Disable remote cache temporary
+# env:
+#   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+#   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
