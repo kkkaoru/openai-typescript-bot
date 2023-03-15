@@ -11,7 +11,7 @@
     "changeset": "changeset",
     "version": "changeset version",
     "release": "changeset publish",
-    "prepare": "turbo run package-build"
+    "prepare": "pnpm run packages-build"
   },
   "keywords": [],
   "author": {
