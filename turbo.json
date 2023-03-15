@@ -6,7 +6,10 @@
     },
     "eslint": {},
     "prettier": {},
-    "package-build": {},
+    "package-build": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^package-build"]
+    },
     "test": {}
   }
 }
