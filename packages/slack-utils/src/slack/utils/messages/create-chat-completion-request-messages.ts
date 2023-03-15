@@ -1,31 +1,20 @@
-import { ChatCompletionRequestMessage } from 'openai';
-import type { WebClient } from '@slack/web-api';
+import type { ChatCompletionRequestMessage } from 'openai';
 import type { AppMentionEvent } from '@slack/bolt';
 import { convertChatCompletionMessagesFromSlack, MaxChatCompletionMessages } from '@kkkaoru/openai-utils';
-import { AppLogger } from '../../../types';
-import { fetchThreadMessagesIfCan } from '../fetch';
+import type { Message } from '@slack/web-api/dist/response/ConversationsRepliesResponse';
 import { convertMessageFromMentionEvent } from '../converter';
 import { makeUniqueMessages } from '../unique';
 
 export type CreateChatCompletionRequestMessagesArgs = {
-  client: WebClient;
   event: AppMentionEvent;
-} & MaxChatCompletionMessages &
-  Pick<AppLogger, 'appLog'>;
+  threadMessages: Message[];
+} & MaxChatCompletionMessages;
 
-export async function createChatCompletionRequestMessages({
-  appLog,
-  client,
+export function createChatCompletionRequestMessages({
   event,
   maxMessagesCount,
-}: CreateChatCompletionRequestMessagesArgs): Promise<ChatCompletionRequestMessage[]> {
-  appLog?.('try fetch thread messages');
-  const threadMessages = await fetchThreadMessagesIfCan({
-    client,
-    channel: event.channel,
-    thread_ts: event.thread_ts,
-  });
-  appLog?.(threadMessages);
+  threadMessages,
+}: CreateChatCompletionRequestMessagesArgs): ChatCompletionRequestMessage[] {
   const mentionMessage = convertMessageFromMentionEvent(event);
   const uniqueMessages = makeUniqueMessages([...threadMessages, mentionMessage]);
   return convertChatCompletionMessagesFromSlack({

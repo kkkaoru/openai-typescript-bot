@@ -13,7 +13,7 @@ export function generateMiddlewareMention({ appLog, errorLog, ...args }: Generat
     }
     try {
       appLog?.('try answer');
-      await sayAnswer({ ...args, appLog, errorLog });
+      await sayAnswer({ ...args, event, appLog, errorLog });
     } catch (error) {
       errorLog?.(error);
       await say({ thread_ts: event.ts, text: `${error?.toString()}` });
