@@ -1,4 +1,6 @@
 import { ConfigurationParameters } from 'openai';
-import { ChatCompletionOptionalParameters } from '../openai/chat-completion';
+import { ChatCompletionOptionalParameters, MaxChatCompletionMessages } from '../openai/chat-completion';
 
-export type OpenaiParameters = Pick<ConfigurationParameters, 'apiKey'> & ChatCompletionOptionalParameters;
+export type OpenaiParameters = Pick<ConfigurationParameters, 'apiKey'> &
+  ChatCompletionOptionalParameters &
+  MaxChatCompletionMessages;
