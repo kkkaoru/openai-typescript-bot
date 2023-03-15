@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/deploy-firebase.yml'
       - 'pnpm-lock.yaml'
+      - 'firebase.json'
       - 'apps/**/*'
 
 env:
