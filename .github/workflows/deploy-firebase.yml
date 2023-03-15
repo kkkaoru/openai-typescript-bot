@@ -45,11 +45,6 @@ jobs:
           firebase functions:config:set slack.token="$SLACK_BOT_TOKEN"
           firebase functions:config:set openai.api_key="$OPEN_AI_API_KEY"
           firebase functions:config:set openai.max_tokens="$OPEN_AI_MAX_TOKENS"
-          firebase functions:config:set openai.temperature="$OPEN_AI_TEMPERATURE"
-          firebase functions:config:set openai.top_p="$OPEN_AI_TOP_P"
-          firebase functions:config:set openai.frequency_penalty="$OPEN_AI_FREQUENCY_PENALTY"
-          firebase functions:config:set openai.enabled_system_content="$OPEN_AI_ENABLED_SYSTEM_CONTENT"
-          firebase functions:config:set openai.message_max_count="$OPEN_AI_MESSAGE_MAX_COUNT"
           firebase deploy --only functions
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp_key.json
@@ -58,7 +53,12 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
           OPEN_AI_MAX_TOKENS: ${{ secrets.OPEN_AI_MAX_TOKENS }}
-          OPEN_AI_TOP_P: ${{ secrets.OPEN_AI_TOP_P }}
-          OPEN_AI_FREQUENCY_PENALTY: ${{ secrets.OPEN_AI_FREQUENCY_PENALTY }}
-          OPEN_AI_ENABLED_SYSTEM_CONTENT: ${{ secrets.OPEN_AI_ENABLED_SYSTEM_CONTENT }}
-          OPEN_AI_MESSAGE_MAX_COUNT: ${{ secrets.OPEN_AI_MESSAGE_MAX_COUNT }}
+          # OPEN_AI_TEMPERATURE: ${{ secrets.OPEN_AI_TEMPERATURE }}
+          # OPEN_AI_TOP_P: ${{ secrets.OPEN_AI_TOP_P }}
+          # OPEN_AI_FREQUENCY_PENALTY: ${{ secrets.OPEN_AI_FREQUENCY_PENALTY }}
+          # OPEN_AI_MESSAGE_MAX_COUNT: ${{ secrets.OPEN_AI_MESSAGE_MAX_COUNT }}
+          # there needs write in run
+          # firebase functions:config:set openai.temperature="$OPEN_AI_TEMPERATURE"
+          # firebase functions:config:set openai.top_p="$OPEN_AI_TOP_P"
+          # firebase functions:config:set openai.frequency_penalty="$OPEN_AI_FREQUENCY_PENALTY"
+          # firebase functions:config:set openai.message_max_count="$OPEN_AI_MESSAGE_MAX_COUNT"
