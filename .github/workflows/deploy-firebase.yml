@@ -43,10 +43,11 @@ jobs:
       - name: Deploy to firebase
         run: |
           firebase use "$FIREBASE_PROJECT_ID"
-          firebase functions:config:set slack.signing_secret="$SLACK_SIGNING_SECRET"
-          firebase functions:config:set slack.token="$SLACK_BOT_TOKEN"
-          firebase functions:config:set openai.api_key="$OPEN_AI_API_KEY"
-          firebase functions:config:set openai.max_tokens="$OPEN_AI_MAX_TOKENS"
+          firebase functions:config:unset app
+          firebase functions:config:set app.slack.signing_secret="$SLACK_SIGNING_SECRET"
+          firebase functions:config:set app.slack.token="$SLACK_BOT_TOKEN"
+          firebase functions:config:set app.openai.api_key="$OPEN_AI_API_KEY"
+          firebase functions:config:set app.openai.max_tokens="$OPEN_AI_MAX_TOKENS"
           firebase deploy --only functions
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp_key.json
