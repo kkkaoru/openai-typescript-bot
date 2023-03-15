@@ -1,4 +1,5 @@
-import { ConfigurationParameters } from 'openai';
-import { ChatCompletionOptionalParameters, MaxMessages } from '../openai/chat-completion';
+import { OpenaiParameters } from '@kkkaoru/openai-utils';
 
-export type OpenaiParameters = Pick<ConfigurationParameters, 'apiKey'> & ChatCompletionOptionalParameters & MaxMessages;
+export type OpenAiProps = {
+  openai: OpenaiParameters;
+};

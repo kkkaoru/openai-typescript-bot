@@ -1,24 +1,19 @@
-import type { AppLogger, OpenaiParameters, MiddlewareMentionArgs } from '../../../types';
-import { answer, AnswerArgs } from './answer';
+import type { MiddlewareMentionArgs } from '../../../types';
+import { sayAnswer, SayAnswerArgs } from './say-answer';
 
-export type GenerateMiddlewareMentionArgs = {
-  openai?: OpenaiParameters;
-} & AppLogger &
-  AnswerArgs;
+export type GenerateMiddlewareMentionArgs = SayAnswerArgs;
 
 export function generateMiddlewareMention({ appLog, errorLog, ...args }: GenerateMiddlewareMentionArgs) {
-  return async (middlewareMentionArgs: MiddlewareMentionArgs) => {
-    const { event, context, say } = middlewareMentionArgs;
+  return async ({ context, event, say }: MiddlewareMentionArgs) => {
     appLog?.(event);
     appLog?.(context);
     if (context.retryNum !== undefined) {
       // If when retry, not say
       appLog?.('not say');
-      return;
     }
     try {
       appLog?.('try answer');
-      answer({ ...middlewareMentionArgs, ...args });
+      await sayAnswer({ ...args, appLog, errorLog });
     } catch (error) {
       errorLog?.(error);
       await say({ thread_ts: event.ts, text: `${error?.toString()}` });
