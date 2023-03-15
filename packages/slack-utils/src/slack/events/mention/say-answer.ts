@@ -2,7 +2,10 @@ import { createChatCompletionRequestMessages, fetchThreadMessagesIfCan, recursiv
 import type { AppLogger, CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
 import { generateRecursiveAnswerCallback } from './generate-recursive-callback';
 
-export type SayAnswerArgs = CustomTextMessage & MiddlewareMentionArgs & AppLogger & OpenAiProps;
+export type SayAnswerArgs = CustomTextMessage &
+  AppLogger &
+  OpenAiProps &
+  Pick<MiddlewareMentionArgs, 'event' | 'say' | 'client'>;
 
 export async function sayAnswer({
   event,

@@ -1,10 +1,10 @@
-import type { MiddlewareMentionArgs } from '../../../types';
-import { sayAnswer, SayAnswerArgs } from './say-answer';
+import type { AppLogger, CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
+import { sayAnswer } from './say-answer';
 
-export type GenerateMiddlewareMentionArgs = SayAnswerArgs;
+export type GenerateMiddlewareMentionArgs = CustomTextMessage & AppLogger & OpenAiProps;
 
 export function generateMiddlewareMention({ appLog, errorLog, ...args }: GenerateMiddlewareMentionArgs) {
-  return async ({ context, event, say }: MiddlewareMentionArgs) => {
+  return async ({ context, event, say, client }: MiddlewareMentionArgs) => {
     appLog?.(event);
     appLog?.(context);
     if (context.retryNum !== undefined) {
@@ -13,7 +13,7 @@ export function generateMiddlewareMention({ appLog, errorLog, ...args }: Generat
     }
     try {
       appLog?.('try answer');
-      await sayAnswer({ ...args, event, appLog, errorLog });
+      await sayAnswer({ ...args, event, client, say, appLog, errorLog });
     } catch (error) {
       errorLog?.(error);
       await say({ thread_ts: event.ts, text: `${error?.toString()}` });

@@ -9,9 +9,8 @@ type AppConfig = {
 
 export function generateConfig(): CreateExpressReceiverArgs {
   const appConfig = config() as AppConfig;
-  const { api_key, ...openai } = appConfig.openai;
+  const { api_key, max_tokens, ...openai } = appConfig.openai;
   const { signing_secret, ...slack } = appConfig.slack;
-
   return {
     slack: {
       ...slack,
@@ -20,6 +19,7 @@ export function generateConfig(): CreateExpressReceiverArgs {
     openai: {
       ...openai,
       apiKey: api_key,
+      max_tokens: Number(max_tokens),
     },
   };
 }
