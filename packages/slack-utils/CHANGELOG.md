@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.4.0
+
+### Minor Changes
+
+- update slack utils
+
 ## 1.3.13
 
 ### Patch Changes
