@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.4.2
+
+### Patch Changes
+
+- [`97c09d4`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/97c09d47bcc27d18f2611991efb739ec88c0e52a) Thanks [@kkkaoru](https://github.com/kkkaoru)! - add more app log in slack
+
 ## 1.4.1
 
 ### Patch Changes
