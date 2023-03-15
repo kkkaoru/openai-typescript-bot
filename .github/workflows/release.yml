@@ -8,6 +8,7 @@ on:
       - '.github/workflows/release.yml'
       - '.changeset/*'
       - 'pnpm-lock.yaml'
+      - 'turbo.json'
       - 'packages/**/*'
   workflow_dispatch:
 
