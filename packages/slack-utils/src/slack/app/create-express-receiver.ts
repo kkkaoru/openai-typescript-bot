@@ -8,6 +8,8 @@ export type CreateExpressReceiverArgs = {
 } & Omit<SetMentionEventArgs, 'app'>;
 
 export function createExpressReceiver({ slack, ...args }: CreateExpressReceiverArgs): ExpressReceiver {
+  args.appLog?.('Creating ExpressReceiver...');
+  args.appLog?.(slack);
   const { signingSecret, token } = slack;
   const expressReceiver = new ExpressReceiver({
     signingSecret,
