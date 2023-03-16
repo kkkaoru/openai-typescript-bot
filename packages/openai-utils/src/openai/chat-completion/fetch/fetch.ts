@@ -1,11 +1,7 @@
-import type { ChatCompletionRequestMessage, ConfigurationParameters, CreateChatCompletionRequest } from 'openai';
+import type { ChatCompletionRequestMessage, ConfigurationParameters } from 'openai';
+import { ChatCompletionOptionalParameters, DEFAULT_CHAT_COMPLETION_MODEL } from '../../../types';
 import { createOpenAIClient } from '../../openai-client';
-import { DEFAULT_CHAT_COMPLETION_MODEL } from '../default-values';
-
-export type ChatCompletionOptionalParameters = {
-  systemMessageContent?: string;
-  model?: typeof DEFAULT_CHAT_COMPLETION_MODEL;
-} & Omit<CreateChatCompletionRequest, 'model'>;
+import { filterIsNaNValues } from '../filter/filter-nan-values';
 
 export type FetchChatCompletionArgs = {
   fetchParams: ChatCompletionOptionalParameters;
@@ -27,10 +23,11 @@ export async function fetchChatCompletion({
           },
         ]
       : [];
+  const filteredRequestParams = filterIsNaNValues(fetchRequestParams);
   const result = await client.createChatCompletion({
     model,
     messages: [...systemMessage, ...messages],
-    ...fetchRequestParams,
+    ...filteredRequestParams,
   });
   return result.data.choices[0].message?.content;
 }
