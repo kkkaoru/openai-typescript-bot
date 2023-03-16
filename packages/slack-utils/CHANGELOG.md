@@ -1,5 +1,14 @@
 # @kkkaoru/slack-utils
 
+## 1.4.5
+
+### Patch Changes
+
+- [#52](https://github.com/kkkaoru/firebase-slack-bolt-typescript/pull/52) [`7f98df9`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/7f98df97486a4b6bfa035dc93c19704ca56c9a6f) Thanks [@kkkaoru](https://github.com/kkkaoru)! - can log when fetch openai
+
+- Updated dependencies [[`7f98df9`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/7f98df97486a4b6bfa035dc93c19704ca56c9a6f)]:
+  - @kkkaoru/openai-utils@1.0.4
+
 ## 1.4.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @kkkaoru/openai-utils
 
+## 1.0.4
+
+### Patch Changes
+
+- [#52](https://github.com/kkkaoru/firebase-slack-bolt-typescript/pull/52) [`7f98df9`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/7f98df97486a4b6bfa035dc93c19704ca56c9a6f) Thanks [@kkkaoru](https://github.com/kkkaoru)! - add logger
+
 ## 1.0.3
 
 ### Patch Changes

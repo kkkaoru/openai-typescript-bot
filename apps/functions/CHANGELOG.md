@@ -4,6 +4,14 @@
 
 ### Patch Changes
 
+- Updated dependencies [[`7f98df9`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/7f98df97486a4b6bfa035dc93c19704ca56c9a6f), [`7f98df9`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/7f98df97486a4b6bfa035dc93c19704ca56c9a6f)]:
+  - @kkkaoru/slack-utils@1.4.5
+  - @kkkaoru/openai-utils@1.0.4
+
+## null
+
+### Patch Changes
+
 - Updated dependencies [[`4f42578`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/4f425780b82647831f45e220c93e03376ff0fcee), [`4f42578`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/4f425780b82647831f45e220c93e03376ff0fcee)]:
   - @kkkaoru/slack-utils@1.4.4
   - @kkkaoru/openai-utils@1.0.3
