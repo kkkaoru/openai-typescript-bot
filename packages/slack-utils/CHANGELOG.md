@@ -1,5 +1,13 @@
 # @kkkaoru/slack-utils
 
+## 1.4.7
+
+### Patch Changes
+
+- [`b449784`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/b449784518ba235b50381da1580c5f3d609ec0f3) Thanks [@kkkaoru](https://github.com/kkkaoru)! - add type abotu openai in slack utils
+
+- [`a485c56`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/a485c568dce816aecc92ee1cf1a4afd181df5533) Thanks [@kkkaoru](https://github.com/kkkaoru)! - can log in creating express receiver
+
 ## 1.4.6
 
 ### Patch Changes
