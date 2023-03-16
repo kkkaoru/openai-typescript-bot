@@ -21,7 +21,7 @@ export function generateConfig(): CreateExpressReceiverArgs {
     openai: {
       ...openai,
       apiKey: api_key,
-      max_tokens: Number(max_tokens),
+      // max_tokens: Number(max_tokens),
     },
   };
 }
