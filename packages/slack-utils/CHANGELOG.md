@@ -1,5 +1,11 @@
 # @kkkaoru/slack-utils
 
+## 1.4.6
+
+### Patch Changes
+
+- [`4489c02`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/4489c020d645dcc4ad6c0c472dbc1f395e9328ae) Thanks [@kkkaoru](https://github.com/kkkaoru)! - fix bugs about openai params
+
 ## 1.4.5
 
 ### Patch Changes
