@@ -14,3 +14,8 @@ export type ChatCompletionOptionalParameters = {
   systemMessageContent?: string;
   model?: typeof DEFAULT_CHAT_COMPLETION_MODEL;
 } & Omit<CreateChatCompletionRequest, 'model'>;
+
+export type OpenAiLogger = {
+  appLog?: (args: unknown) => unknown;
+  errorLog?: (args: unknown) => unknown;
+};
