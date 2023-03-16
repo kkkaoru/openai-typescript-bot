@@ -28,9 +28,10 @@ export function generateRecursiveAnswerCallback({
       errorLog?.('messages is empty');
       throw new Error('messages is empty');
     }
+    const { apiKey, ...openaiParams } = openai;
     const fetchChatCompletionArgs: FetchChatCompletionArgs = {
-      fetchParams: { ...openai, messages },
-      clientParams: { apiKey: openai.apiKey },
+      fetchParams: { ...openaiParams, messages },
+      clientParams: { apiKey },
       logger: { appLog, errorLog },
     };
     appLog?.('try fetchChatCompletion');
