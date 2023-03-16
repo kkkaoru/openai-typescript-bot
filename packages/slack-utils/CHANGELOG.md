@@ -1,5 +1,14 @@
 # @kkkaoru/slack-utils
 
+## 1.4.4
+
+### Patch Changes
+
+- [#49](https://github.com/kkkaoru/firebase-slack-bolt-typescript/pull/49) [`4f42578`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/4f425780b82647831f45e220c93e03376ff0fcee) Thanks [@kkkaoru](https://github.com/kkkaoru)! - can log when set mention event
+
+- Updated dependencies [[`4f42578`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/4f425780b82647831f45e220c93e03376ff0fcee)]:
+  - @kkkaoru/openai-utils@1.0.3
+
 ## 1.4.3
 
 ### Patch Changes
