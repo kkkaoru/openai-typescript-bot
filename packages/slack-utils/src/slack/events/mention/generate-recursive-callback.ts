@@ -1,5 +1,5 @@
 import type { ChatCompletionRequestMessage } from 'openai';
-import { fetchChatCompletion } from '@kkkaoru/openai-utils';
+import { fetchChatCompletion, FetchChatCompletionArgs } from '@kkkaoru/openai-utils';
 import type { AppLogger, CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
 import type { RecursiveCallback } from '../../utils/recursive/recursive-callback';
 
@@ -28,7 +28,11 @@ export function generateRecursiveAnswerCallback({
       errorLog?.('messages is empty');
       throw new Error('messages is empty');
     }
-    const fetchChatCompletionArgs = { fetchParams: { ...openai, messages }, clientParams: { apiKey: openai.apiKey } };
+    const fetchChatCompletionArgs: FetchChatCompletionArgs = {
+      fetchParams: { ...openai, messages },
+      clientParams: { apiKey: openai.apiKey },
+      logger: { appLog, errorLog },
+    };
     appLog?.('try fetchChatCompletion');
     appLog?.(fetchChatCompletionArgs);
     const text = await fetchChatCompletion(fetchChatCompletionArgs);
