@@ -1,11 +1,10 @@
 import { config } from 'firebase-functions';
-import { CreateExpressReceiverArgs, SlackParameters } from '@kkkaoru/slack-utils';
-import { OpenaiParameters } from '@kkkaoru/openai-utils';
+import { CreateExpressReceiverArgs, SlackParameters, OpenAiParamsWithoutApiKey } from '@kkkaoru/slack-utils';
 
 type AppConfig = {
   app: {
     slack: { signing_secret: string } & Omit<SlackParameters, 'signingSecret'>;
-    openai: { api_key: string; message_max_count?: string } & Omit<OpenaiParameters, 'apiKey' | 'messagesMaxCount'>;
+    openai: { api_key: string; message_max_count?: string } & OpenAiParamsWithoutApiKey;
   };
 };
 
