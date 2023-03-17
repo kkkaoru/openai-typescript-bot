@@ -1,5 +1,5 @@
-import { setTimeout } from 'node:timers/promises';
 import type { AppLogger } from '../../../types';
+import { sleep } from '../sleep/sleep';
 
 export type RetryCallbackProps = {
   retryCount?: number;
@@ -32,7 +32,7 @@ export async function recursivePromiseCallback({
       errorLog?.(`gave up count is ${retryCount}`);
       throw error;
     }
-    await setTimeout(retryDelayMs);
+    await sleep(retryDelayMs);
     return recursivePromiseCallback({ callback, retryCount: retryCount + 1, retryMaxCount, retryDelayMs });
   }
 }

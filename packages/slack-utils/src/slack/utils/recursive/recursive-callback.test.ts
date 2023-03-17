@@ -1,5 +1,9 @@
 import { recursivePromiseCallback } from './recursive-callback';
 
+vi.mock('../sleep/sleep', () => ({
+  sleep: vi.fn().mockResolvedValue(vi.fn()),
+}));
+
 test('should exec callback', async () => {
   const mockCallback = vi.fn();
   const appLog = vi.fn();
@@ -16,7 +20,6 @@ test('should exec callback', async () => {
 });
 
 test('should retry when callback failed', async () => {
-  vi.useFakeTimers();
   const mockCallback = vi.fn().mockImplementationOnce(() => {
     throw new Error('mock error');
   });
@@ -29,7 +32,6 @@ test('should retry when callback failed', async () => {
     appLog,
     errorLog,
   });
-  await vi.runAllTimersAsync();
   expect(mockCallback).toHaveBeenCalledTimes(2);
   expect(appLog).toHaveBeenCalledTimes(2);
   expect(errorLog).toHaveBeenCalledTimes(1);
@@ -37,7 +39,6 @@ test('should retry when callback failed', async () => {
 });
 
 test('should throw error after retry count is over max count', async () => {
-  vi.useFakeTimers();
   const mockCallback = vi.fn().mockImplementation(() => {
     throw new Error('mock error');
   });
@@ -48,7 +49,6 @@ test('should throw error after retry count is over max count', async () => {
       retryMaxCount: 3,
       retryDelayMs: 0,
     });
-    await vi.runAllTimersAsync();
   }).rejects.toThrow('mock error');
 
   expect(mockCallback).toHaveBeenCalledTimes(4);
