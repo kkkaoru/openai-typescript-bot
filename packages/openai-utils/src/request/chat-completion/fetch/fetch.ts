@@ -1,7 +1,7 @@
 import type { ChatCompletionRequestMessage, ConfigurationParameters } from 'openai';
 import { ChatCompletionOptionalParameters, OpenAiLogger } from '../../../types';
 import { createOpenAIClient } from '../../openai-client';
-import { filterIsNaNValues } from '../filter/filter-nan-values';
+import { filterIsNaNValues } from '../../../messages';
 
 export type FetchChatCompletionArgs = {
   fetchParams: ChatCompletionOptionalParameters;

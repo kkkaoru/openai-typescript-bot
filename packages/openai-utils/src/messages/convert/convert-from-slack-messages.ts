@@ -1,7 +1,7 @@
 import type { Message } from '@slack/web-api/dist/response/ConversationsRepliesResponse';
 import type { ChatCompletionRequestMessage } from 'openai';
-import { MaxChatCompletionMessages } from '../../../types';
-import { DEFAULT_MAX_CHAT_COMPLETION_MESSAGES_COUNT } from '../default-values';
+import { MaxChatCompletionMessages } from '../../types';
+import { DEFAULT_MAX_CHAT_COMPLETION_MESSAGES_COUNT } from '../../default/default-values';
 
 export type ConverterMessagesArgs = {
   slackMessages: Message[];

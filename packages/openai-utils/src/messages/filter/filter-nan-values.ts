@@ -1,4 +1,4 @@
-import { ChatCompletionOptionalParameters } from '../../../types';
+import { ChatCompletionOptionalParameters } from '../../types';
 
 export function filterIsNaNValues(
   params: Partial<ChatCompletionOptionalParameters>,
