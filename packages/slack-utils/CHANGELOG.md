@@ -1,5 +1,13 @@
 # @kkkaoru/slack-utils
 
+## 1.4.8
+
+### Patch Changes
+
+- [#57](https://github.com/kkkaoru/firebase-slack-bolt-typescript/pull/57) [`3bec521`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/3bec521d591104a8afcbbee495a9045706bccb78) Thanks [@kkkaoru](https://github.com/kkkaoru)! - add unit test code
+
+- [`44d09ff`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/44d09ff4eb237e471b6b722824420e6051b8c92b) Thanks [@kkkaoru](https://github.com/kkkaoru)! - fix build in slack utils
+
 ## 1.4.7
 
 ### Patch Changes
