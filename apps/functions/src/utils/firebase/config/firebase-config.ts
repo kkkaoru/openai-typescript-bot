@@ -5,6 +5,7 @@ import {
   OpenAiParamsWithoutApiKey,
   DEFAULT_SLACK_FORMAT_SYSTEM_PROMPT,
 } from '@kkkaoru/slack-utils';
+// import { isOpenAIModel } from '@kkkaoru/openai-models';
 
 type AppConfig = {
   app: {
@@ -15,7 +16,7 @@ type AppConfig = {
 
 export function generateConfig(): CreateExpressReceiverArgs {
   const { app } = config() as AppConfig;
-  const { api_key, max_tokens, ...openai } = app.openai;
+  const { api_key, max_tokens, model, ...openai } = app.openai;
   const { signing_secret, ...slack } = app.slack;
   return {
     slack: {
@@ -25,6 +26,8 @@ export function generateConfig(): CreateExpressReceiverArgs {
     openai: {
       ...openai,
       apiKey: api_key,
+      // TODO: Can setup model
+      // model: isOpenAIModel(model) ? model : 'gpt-4',
       systemMessageContent: DEFAULT_SLACK_FORMAT_SYSTEM_PROMPT,
     },
   };
