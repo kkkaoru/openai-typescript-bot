@@ -1,3 +1,3 @@
-export * from './utils/trim';
+export * from './utils';
 export * from './events';
 export * from './app';
