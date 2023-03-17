@@ -1,10 +1,10 @@
 import type { ChatCompletionRequestMessage } from 'openai';
-import { fetchChatCompletion, FetchChatCompletionArgs } from '@kkkaoru/openai-utils';
+import { cutMessages, fetchChatCompletion, FetchChatCompletionArgs } from '@kkkaoru/openai-utils';
 import type { AppLogger, CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
 import type { RecursiveCallback } from '../../utils/recursive/recursive-callback';
 
 export type GenerateRecursiveAnswerCallbackArgs = {
-  openaiMessages?: ChatCompletionRequestMessage[];
+  openaiMessages: ChatCompletionRequestMessage[];
 } & OpenAiProps &
   AppLogger &
   Pick<CustomTextMessage, 'thinkingText'> &
@@ -19,15 +19,12 @@ export function generateRecursiveAnswerCallback({
   openaiMessages,
   openai,
 }: GenerateRecursiveAnswerCallbackArgs) {
-  const callback: RecursiveCallback = async ({ retryCount }) => {
+  const callback: RecursiveCallback = async ({ retryCount = 0 }) => {
     if (retryCount === 1) {
       await say({ thread_ts: event.ts, text: thinkingText });
     }
-    const messages = openaiMessages?.slice(retryCount);
-    if (messages === undefined || messages?.length === 0) {
-      errorLog?.('messages is empty');
-      throw new Error('messages is empty');
-    }
+    const messages = retryCount >= 1 ? cutMessages(openaiMessages) : openaiMessages;
+
     const { apiKey, ...openaiParams } = openai;
     const fetchChatCompletionArgs: FetchChatCompletionArgs = {
       fetchParams: { ...openaiParams, messages },

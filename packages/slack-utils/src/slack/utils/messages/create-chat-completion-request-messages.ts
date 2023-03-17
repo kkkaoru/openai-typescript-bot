@@ -3,7 +3,7 @@ import type { AppMentionEvent } from '@slack/bolt';
 import { convertChatCompletionMessagesFromSlack, MaxChatCompletionMessages } from '@kkkaoru/openai-utils';
 import type { Message } from '@slack/web-api/dist/response/ConversationsRepliesResponse';
 import { convertMessageFromMentionEvent } from '../converter';
-import { makeUniqueMessages } from '../unique';
+import { makeUniqueArray } from '../unique';
 
 export type CreateChatCompletionRequestMessagesArgs = {
   event: AppMentionEvent;
@@ -16,7 +16,7 @@ export function createChatCompletionRequestMessages({
   threadMessages,
 }: CreateChatCompletionRequestMessagesArgs): ChatCompletionRequestMessage[] {
   const mentionMessage = convertMessageFromMentionEvent(event);
-  const uniqueMessages = makeUniqueMessages([...threadMessages, mentionMessage]);
+  const uniqueMessages = makeUniqueArray([...threadMessages, mentionMessage], 'ts');
   return convertChatCompletionMessagesFromSlack({
     slackMessages: uniqueMessages,
     maxMessagesCount,

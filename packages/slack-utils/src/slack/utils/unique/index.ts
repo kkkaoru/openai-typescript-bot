@@ -1,1 +1,1 @@
-export * from './make-unique-messages';
+export * from './make-unique-array';
