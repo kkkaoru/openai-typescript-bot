@@ -1,5 +1,10 @@
 import { config } from 'firebase-functions';
-import { CreateExpressReceiverArgs, SlackParameters, OpenAiParamsWithoutApiKey } from '@kkkaoru/slack-utils';
+import {
+  CreateExpressReceiverArgs,
+  SlackParameters,
+  OpenAiParamsWithoutApiKey,
+  DEFAULT_SLACK_FORMAT_SYSTEM_PROMPT,
+} from '@kkkaoru/slack-utils';
 
 type AppConfig = {
   app: {
@@ -20,7 +25,7 @@ export function generateConfig(): CreateExpressReceiverArgs {
     openai: {
       ...openai,
       apiKey: api_key,
-      // max_tokens: Number(max_tokens),
+      systemMessageContent: DEFAULT_SLACK_FORMAT_SYSTEM_PROMPT,
     },
   };
 }
