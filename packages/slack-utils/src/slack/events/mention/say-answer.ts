@@ -64,7 +64,7 @@ export async function sayAnswer({
     };
     appLog?.('try recursive promise callback');
     appLog?.(recursivePromiseCallbackArgs);
-    recursivePromiseCallback(recursivePromiseCallbackArgs);
+    await recursivePromiseCallback(recursivePromiseCallbackArgs);
   } catch (error) {
     errorLog?.(error);
     await say({ thread_ts: event.ts, text: gaveUpText });

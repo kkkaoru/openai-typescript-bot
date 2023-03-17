@@ -22,6 +22,7 @@
     }
   },
   "scripts": {
+    "test": "vitest run --config ../../vitest.config.js src",
     "package-build": "pnpm run vite:build && pnpm run tsc",
     "vitest": "vitest --config ../../vitest.config.js src",
     "eslint": "eslint -c ./../../.eslintrc.js --max-warnings=0 --fix --ext .ts src",
