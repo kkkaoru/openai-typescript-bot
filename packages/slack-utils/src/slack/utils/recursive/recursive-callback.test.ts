@@ -2,11 +2,15 @@ import { recursivePromiseCallback } from './recursive-callback';
 
 test('should exec callback', async () => {
   const mockCallback = vi.fn();
+  const appLog = vi.fn();
   await recursivePromiseCallback({
     callback: mockCallback,
     retryMaxCount: 2,
     retryDelayMs: 1000,
+    appLog,
   });
+  expect(appLog).toHaveBeenCalledTimes(1);
+  expect(appLog).toHaveBeenCalledWith('try count is 0');
   expect(mockCallback).toHaveBeenCalledTimes(1);
   expect(mockCallback).toHaveBeenCalledWith({ retryCount: 0 });
 });
@@ -16,13 +20,20 @@ test('should retry when callback failed', async () => {
   const mockCallback = vi.fn().mockImplementationOnce(() => {
     throw new Error('mock error');
   });
+  const appLog = vi.fn();
+  const errorLog = vi.fn();
   await recursivePromiseCallback({
     callback: mockCallback,
     retryMaxCount: 2,
     retryDelayMs: 1000,
+    appLog,
+    errorLog,
   });
   await vi.runAllTimersAsync();
   expect(mockCallback).toHaveBeenCalledTimes(2);
+  expect(appLog).toHaveBeenCalledTimes(2);
+  expect(errorLog).toHaveBeenCalledTimes(1);
+  expect(errorLog).toHaveBeenCalledWith(new Error('mock error'));
 });
 
 test('should throw error after retry count is over max count', async () => {
