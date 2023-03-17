@@ -54,7 +54,7 @@ importers:
 
   packages/openai-utils:
     specifiers:
-      '@kkkaoru/openai-models': workspace:*
+      '@kkkaoru/openai-models': 1.0.1
       '@slack/web-api': 6.8.1
       openai: 3.2.1
     devDependencies:
