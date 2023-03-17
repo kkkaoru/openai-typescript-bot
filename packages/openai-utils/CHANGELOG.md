@@ -1,5 +1,11 @@
 # @kkkaoru/openai-utils
 
+## 1.0.6
+
+### Patch Changes
+
+- [`c29710d`](https://github.com/kkkaoru/firebase-slack-bolt-typescript/commit/c29710df70e3c892a4a90fe7e0f1ef391e3927fb) Thanks [@kkkaoru](https://github.com/kkkaoru)! - update openai models version
+
 ## 1.0.5
 
 ### Patch Changes
