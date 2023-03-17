@@ -1,6 +1,5 @@
 import type { ConfigurationParameters, CreateChatCompletionRequest } from 'openai';
-
-export const DEFAULT_CHAT_COMPLETION_MODEL = 'gpt-3.5-turbo';
+import type { OpenAiModel } from '@kkkaoru/openai-models';
 
 export type MaxChatCompletionMessages = {
   maxMessagesCount?: number | string;
@@ -12,7 +11,7 @@ export type OpenaiParameters = Pick<ConfigurationParameters, 'apiKey'> &
 
 export type ChatCompletionOptionalParameters = {
   systemMessageContent?: string;
-  model?: typeof DEFAULT_CHAT_COMPLETION_MODEL;
+  model?: OpenAiModel;
 } & Omit<CreateChatCompletionRequest, 'model'>;
 
 export type OpenAiLogger = {

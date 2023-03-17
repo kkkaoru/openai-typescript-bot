@@ -1,6 +1,6 @@
 {
-  "name": "@kkkaoru/openai-utils",
-  "version": "1.0.4",
+  "name": "@kkkaoru/openai-models",
+  "version": "0.0.0",
   "author": {
     "name": "kkkaoru",
     "email": "ockacru+git@gmail.com",
@@ -12,13 +12,13 @@
     "url": "https://github.com/kkkaoru/firebase-slack-bolt-typescript/issues"
   },
   "homepage": "https://github.com/kkkaoru/firebase-slack-bolt-typescript#readme",
-  "main": "./dist/openai-utils.umd.js",
-  "module": "./dist/openai-utils.mjs",
+  "main": "./dist/openai-models.umd.js",
+  "module": "./dist/openai-models.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/openai-utils.mjs",
-      "require": "./dist/openai-utils.umd.js"
+      "import": "./dist/openai-models.mjs",
+      "require": "./dist/openai-models.umd.js"
     }
   },
   "files": [
@@ -27,20 +27,10 @@
   ],
   "scripts": {
     "package-build": "pnpm run vite:build && pnpm run tsc",
-    "test": "vitest run --config ../../vitest.config.js src",
-    "vitest": "vitest --config ../../vitest.config.js src",
     "eslint": "eslint -c ./../../.eslintrc.js --max-warnings=0 --fix --ext .ts src",
     "vite:build": "vite build",
     "tsc": "tsc",
     "prettier": "prettier --write --check src"
   },
-  "keywords": [],
-  "devDependencies": {
-    "@slack/web-api": "6.8.1",
-    "openai": "3.2.1",
-    "@kkkaoru/openai-models": "workspace:*"
-  },
-  "peerDependencies": {
-    "openai": "^3.2.1"
-  }
+  "keywords": []
 }
