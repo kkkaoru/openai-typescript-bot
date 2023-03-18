@@ -7,11 +7,11 @@
     "url": "https://twitter.com/kkk4oru"
   },
   "license": "MIT",
-  "repository": "https://github.com/kkkaoru/firebase-slack-bolt-typescript",
+  "repository": "https://github.com/kkkaoru/openai-typescript-bot",
   "bugs": {
-    "url": "https://github.com/kkkaoru/firebase-slack-bolt-typescript/issues"
+    "url": "https://github.com/kkkaoru/openai-typescript-bot/issues"
   },
-  "homepage": "https://github.com/kkkaoru/firebase-slack-bolt-typescripty#readme",
+  "homepage": "https://github.com/kkkaoru/openai-typescript-boty#readme",
   "main": "./dist/slack-utils.umd.js",
   "module": "./dist/slack-utils.mjs",
   "types": "./dist/index.d.ts",
