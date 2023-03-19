@@ -1,5 +1,18 @@
 # @kkkaoru/slack-utils
 
+## 1.5.0
+
+### Minor Changes
+
+- [`f98585d`](https://github.com/kkkaoru/openai-typescript-bot/commit/f98585d28f969f731cfb77aa76bd4cd4d82e9653) Thanks [@kkkaoru](https://github.com/kkkaoru)! - change repo name
+
+### Patch Changes
+
+- [`c5e2f82`](https://github.com/kkkaoru/openai-typescript-bot/commit/c5e2f8225479fdf8525483be230a1cc6bc948ae9) Thanks [@kkkaoru](https://github.com/kkkaoru)! - cut messages when throw error
+
+- Updated dependencies [[`3b9e5f3`](https://github.com/kkkaoru/openai-typescript-bot/commit/3b9e5f3e35bb90e3e2a0cdd3fcb263981828eb76), [`f98585d`](https://github.com/kkkaoru/openai-typescript-bot/commit/f98585d28f969f731cfb77aa76bd4cd4d82e9653)]:
+  - @kkkaoru/openai-utils@1.1.0
+
 ## 1.4.12
 
 ### Patch Changes
