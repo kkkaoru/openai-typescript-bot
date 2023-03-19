@@ -12,7 +12,7 @@ importers:
       '@kkkaoru/vitest-config': 1.0.0
       esbuild: 0.17.12
       turbo: 1.8.3
-      typescript: ^5.0.0
+      typescript: 5.0.2
       vite: 4.2.0
       vitest: 0.29.3
     devDependencies:
