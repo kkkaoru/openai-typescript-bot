@@ -38,7 +38,7 @@
   "devDependencies": {
     "@slack/web-api": "6.8.1",
     "openai": "3.2.1",
-    "@kkkaoru/openai-models": "1.1.0"
+    "@kkkaoru/openai-models": "1.0.1"
   },
   "peerDependencies": {
     "openai": "^3.2.1"

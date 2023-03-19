@@ -31,7 +31,7 @@ importers:
   apps/functions:
     specifiers:
       '@firebase/app-types': 0.9.0
-      '@kkkaoru/openai-models': 1.1.0
+      '@kkkaoru/openai-models': 1.0.1
       '@kkkaoru/slack-utils': 1.5.0
       '@slack/bolt': 3.12.2
       firebase-admin: 11.5.0
@@ -40,7 +40,7 @@ importers:
       jest: 29.5.0
       openai: 3.2.1
     dependencies:
-      '@kkkaoru/openai-models': link:../../packages/openai-models
+      '@kkkaoru/openai-models': 1.0.1
       '@kkkaoru/slack-utils': link:../../packages/slack-utils
       '@slack/bolt': 3.12.2
       firebase-admin: 11.5.0
@@ -59,11 +59,11 @@ importers:
 
   packages/openai-utils:
     specifiers:
-      '@kkkaoru/openai-models': 1.1.0
+      '@kkkaoru/openai-models': 1.0.1
       '@slack/web-api': 6.8.1
       openai: 3.2.1
     devDependencies:
-      '@kkkaoru/openai-models': link:../openai-models
+      '@kkkaoru/openai-models': 1.0.1
       '@slack/web-api': 6.8.1
       openai: 3.2.1
 
@@ -1509,6 +1509,9 @@ packages:
       - supports-color
       - typescript
     dev: true
+
+  /@kkkaoru/openai-models/1.0.1:
+    resolution: {integrity: sha512-qqr8/ZLiWn4l8EK0jLVvl05hIlh2UxXcixxHJ6Qlg8KUkQ+UXmK9C0hrPzoYWMrs5yPlMJfbpo8eaf6OgZaF6w==}
 
   /@kkkaoru/prettier-config/1.0.0:
     resolution: {integrity: sha512-xu7Ps0Y3QpL9i7EbFe8vgutnm7jt5HWHorbCdEwuoQNQdWyFIhv9bhRVtQHz/krEO+pkAC0J2vzjNDVlU2ckTw==}
