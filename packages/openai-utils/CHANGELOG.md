@@ -1,5 +1,11 @@
 # @kkkaoru/openai-utils
 
+## 1.1.1
+
+### Patch Changes
+
+- update pacakges
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@kkkaoru/slack-utils",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "author": {
     "name": "kkkaoru",
     "email": "ockacru+git@gmail.com",
@@ -32,7 +32,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "@kkkaoru/openai-utils": "1.1.0"
+    "@kkkaoru/openai-utils": "1.1.1"
   },
   "devDependencies": {
     "@slack/bolt": "3.12.2",

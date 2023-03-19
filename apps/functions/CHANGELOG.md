@@ -4,6 +4,14 @@
 
 ### Patch Changes
 
+- Updated dependencies []:
+  - @kkkaoru/openai-models@1.1.1
+  - @kkkaoru/slack-utils@1.5.1
+
+## null
+
+### Patch Changes
+
 - Updated dependencies [[`c5e2f82`](https://github.com/kkkaoru/openai-typescript-bot/commit/c5e2f8225479fdf8525483be230a1cc6bc948ae9), [`f98585d`](https://github.com/kkkaoru/openai-typescript-bot/commit/f98585d28f969f731cfb77aa76bd4cd4d82e9653)]:
   - @kkkaoru/slack-utils@1.5.0
   - @kkkaoru/openai-models@1.1.0
