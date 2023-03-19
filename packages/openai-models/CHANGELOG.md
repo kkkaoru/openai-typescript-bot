@@ -1,5 +1,11 @@
 # @kkkaoru/openai-models
 
+## 1.1.0
+
+### Minor Changes
+
+- [`f98585d`](https://github.com/kkkaoru/openai-typescript-bot/commit/f98585d28f969f731cfb77aa76bd4cd4d82e9653) Thanks [@kkkaoru](https://github.com/kkkaoru)! - change repo name
+
 ## 1.0.1
 
 ### Patch Changes

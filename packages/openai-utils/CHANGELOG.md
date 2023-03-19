@@ -1,5 +1,15 @@
 # @kkkaoru/openai-utils
 
+## 1.1.0
+
+### Minor Changes
+
+- [`f98585d`](https://github.com/kkkaoru/openai-typescript-bot/commit/f98585d28f969f731cfb77aa76bd4cd4d82e9653) Thanks [@kkkaoru](https://github.com/kkkaoru)! - change repo name
+
+### Patch Changes
+
+- [`3b9e5f3`](https://github.com/kkkaoru/openai-typescript-bot/commit/3b9e5f3e35bb90e3e2a0cdd3fcb263981828eb76) Thanks [@kkkaoru](https://github.com/kkkaoru)! - optimize openai utils
+
 ## 1.0.6
 
 ### Patch Changes

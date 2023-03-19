@@ -24,8 +24,8 @@
     "firebase-admin": "11.5.0",
     "firebase-functions": "4.2.1",
     "openai": "3.2.1",
-    "@kkkaoru/slack-utils": "1.4.12",
-    "@kkkaoru/openai-models": "1.0.1"
+    "@kkkaoru/slack-utils": "1.5.0",
+    "@kkkaoru/openai-models": "1.1.0"
   },
   "devDependencies": {
     "@firebase/app-types": "0.9.0",
