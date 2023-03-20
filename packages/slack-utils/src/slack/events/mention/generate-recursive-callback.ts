@@ -1,12 +1,12 @@
 import type { ChatCompletionRequestMessage } from 'openai';
 import { cutMessages, fetchChatCompletion, FetchChatCompletionArgs } from '@kkkaoru/openai-utils';
-import type { AppLogger, CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
-import type { RecursiveCallback } from '../../utils/recursive/recursive-callback';
+import type { RecursiveCallback, Loggers } from '@kkkaoru/bot-utils';
+import type { CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
 
 export type GenerateRecursiveAnswerCallbackArgs = {
   openaiMessages: ChatCompletionRequestMessage[];
 } & OpenAiProps &
-  AppLogger &
+  Loggers &
   Pick<CustomTextMessage, 'thinkingText'> &
   Pick<MiddlewareMentionArgs, 'say' | 'event'>;
 
@@ -29,7 +29,7 @@ export function generateRecursiveAnswerCallback({
     const fetchChatCompletionArgs: FetchChatCompletionArgs = {
       fetchParams: { ...openaiParams, messages },
       clientParams: { apiKey },
-      logger: { appLog, errorLog },
+      loggers: { appLog, errorLog },
     };
     appLog?.('try fetchChatCompletion');
     appLog?.(fetchChatCompletionArgs);

@@ -1,7 +1,8 @@
-import type { AppLogger, CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
+import type { Loggers } from '@kkkaoru/bot-utils';
+import type { CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
 import { sayAnswer } from './say-answer';
 
-export type GenerateMiddlewareMentionArgs = CustomTextMessage & AppLogger & OpenAiProps;
+export type GenerateMiddlewareMentionArgs = CustomTextMessage & Loggers & OpenAiProps;
 
 export function generateMiddlewareMention({ appLog, errorLog, ...args }: GenerateMiddlewareMentionArgs) {
   return async ({ context, event, say, client }: MiddlewareMentionArgs) => {
