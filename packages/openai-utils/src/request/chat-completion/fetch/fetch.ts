@@ -1,18 +1,19 @@
 import type { ChatCompletionRequestMessage, ConfigurationParameters } from 'openai';
-import { ChatCompletionOptionalParameters, OpenAiLogger } from '../../../types';
+import type { Loggers } from '@kkkaoru/bot-utils';
+import { ChatCompletionOptionalParameters } from '../../../types';
 import { createOpenAIClient } from '../../openai-client';
 import { filterIsNaNValues } from '../../../messages';
 
 export type FetchChatCompletionArgs = {
   fetchParams: ChatCompletionOptionalParameters;
   clientParams: ConfigurationParameters;
-  logger?: OpenAiLogger;
+  loggers?: Loggers;
 };
 
 export async function fetchChatCompletion({
   fetchParams,
   clientParams,
-  logger,
+  loggers,
 }: FetchChatCompletionArgs): Promise<string | undefined> {
   const { systemMessageContent, model = 'gpt-3.5-turbo', messages, ...fetchRequestParams } = fetchParams;
   const client = createOpenAIClient({ ...clientParams });
@@ -31,11 +32,11 @@ export async function fetchChatCompletion({
     messages: [...systemMessage, ...messages],
     ...filteredRequestParams,
   };
-  logger?.appLog?.('createChatCompletion');
-  logger?.appLog?.({ createChatCompletionArgs });
+  loggers?.appLog?.('createChatCompletion');
+  loggers?.appLog?.({ createChatCompletionArgs });
   const result = await client.createChatCompletion(createChatCompletionArgs).catch((error) => {
-    logger?.errorLog?.('createChatCompletion error');
-    logger?.errorLog?.(error);
+    loggers?.errorLog?.('createChatCompletion error');
+    loggers?.errorLog?.(error);
     throw error;
   });
   return result.data.choices[0].message?.content;
