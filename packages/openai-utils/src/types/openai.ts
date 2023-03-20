@@ -13,8 +13,3 @@ export type ChatCompletionOptionalParameters = {
   systemMessageContent?: string;
   model?: OpenAiModel;
 } & Omit<CreateChatCompletionRequest, 'model'>;
-
-export type OpenAiLogger = {
-  appLog?: (args: unknown) => unknown;
-  errorLog?: (args: unknown) => unknown;
-};

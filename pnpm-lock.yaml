@@ -59,21 +59,25 @@ importers:
 
   packages/openai-utils:
     specifiers:
+      '@kkkaoru/bot-utils': 1.0.1
       '@kkkaoru/openai-models': 1.1.1
       '@slack/web-api': 6.8.1
       openai: 3.2.1
     devDependencies:
+      '@kkkaoru/bot-utils': link:../bot-utils
       '@kkkaoru/openai-models': link:../openai-models
       '@slack/web-api': 6.8.1
       openai: 3.2.1
 
   packages/slack-utils:
     specifiers:
+      '@kkkaoru/bot-utils': 1.0.1
       '@kkkaoru/openai-utils': 1.1.1
       '@slack/bolt': 3.12.2
       '@slack/web-api': 6.8.1
       openai: 3.2.1
     dependencies:
+      '@kkkaoru/bot-utils': link:../bot-utils
       '@kkkaoru/openai-utils': link:../openai-utils
     devDependencies:
       '@slack/bolt': 3.12.2

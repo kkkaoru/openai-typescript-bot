@@ -23,7 +23,7 @@ test('should throw error', async () => {
       fetchParams: {
         messages: [],
       },
-      logger: {
+      loggers: {
         errorLog,
       },
     });
@@ -45,7 +45,7 @@ test('should return message', async () => {
     fetchParams: {
       messages: [],
     },
-    logger: {
+    loggers: {
       appLog,
     },
   });

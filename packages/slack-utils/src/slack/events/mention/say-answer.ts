@@ -1,9 +1,10 @@
-import { createChatCompletionRequestMessages, fetchThreadMessagesIfCan, recursivePromiseCallback } from '../../utils';
-import type { AppLogger, CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
+import { recursivePromiseCallback, Loggers } from '@kkkaoru/bot-utils';
+import { createChatCompletionRequestMessages, fetchThreadMessagesIfCan } from '../../utils';
+import type { CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
 import { generateRecursiveAnswerCallback } from './generate-recursive-callback';
 
 export type SayAnswerArgs = CustomTextMessage &
-  AppLogger &
+  Loggers &
   OpenAiProps &
   Pick<MiddlewareMentionArgs, 'event' | 'say' | 'client'>;
 
