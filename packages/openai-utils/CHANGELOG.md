@@ -1,5 +1,11 @@
 # @kkkaoru/openai-utils
 
+## 1.1.2
+
+### Patch Changes
+
+- use bot utils in pacakges
+
 ## 1.1.1
 
 ### Patch Changes

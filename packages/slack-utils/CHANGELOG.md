@@ -1,5 +1,14 @@
 # @kkkaoru/slack-utils
 
+## 1.5.2
+
+### Patch Changes
+
+- use bot utils in pacakges
+
+- Updated dependencies []:
+  - @kkkaoru/openai-utils@1.1.2
+
 ## 1.5.1
 
 ### Patch Changes
