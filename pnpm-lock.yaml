@@ -13,7 +13,7 @@ importers:
       esbuild: 0.17.12
       turbo: 1.8.3
       typescript: 5.0.2
-      vite: 4.2.0
+      vite: 4.2.1
       vitest: 0.29.3
     devDependencies:
       '@changesets/changelog-github': 0.4.8
@@ -21,11 +21,11 @@ importers:
       '@kkkaoru/eslint-config': 1.0.5_typescript@5.0.2
       '@kkkaoru/prettier-config': 1.0.0
       '@kkkaoru/tsconfig': 1.0.5
-      '@kkkaoru/vitest-config': 1.0.0_vite@4.2.0
+      '@kkkaoru/vitest-config': 1.0.0_vite@4.2.1
       esbuild: 0.17.12
       turbo: 1.8.3
       typescript: 5.0.2
-      vite: 4.2.0
+      vite: 4.2.1
       vitest: 0.29.3
 
   apps/functions:
@@ -1324,10 +1324,10 @@ packages:
       typescript: 4.9.5
     dev: true
 
-  /@kkkaoru/vitest-config/1.0.0_vite@4.2.0:
+  /@kkkaoru/vitest-config/1.0.0_vite@4.2.1:
     resolution: {integrity: sha512-qVenL+9kUnW/t1sSlhBq+whYoq+kLBBvAuCCo55G8j5o3HdRpJ3jz7wrrIEN/mnmDbg0+1xm8CPW05WpCXTeJA==}
     dependencies:
-      '@vitejs/plugin-react-swc': 3.2.0_vite@4.2.0
+      '@vitejs/plugin-react-swc': 3.2.0_vite@4.2.1
       '@vitest/coverage-c8': 0.29.2_vitest@0.29.2
       vitest: 0.29.2
     transitivePeerDependencies:
@@ -2039,13 +2039,13 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitejs/plugin-react-swc/3.2.0_vite@4.2.0:
+  /@vitejs/plugin-react-swc/3.2.0_vite@4.2.1:
     resolution: {integrity: sha512-IcBoXL/mcH7JdQr/nfDlDwTdIaH8Rg7LpfQDF4nAht+juHWIuv6WhpKPCSfY4+zztAaB07qdBoFz1XCZsgo3pQ==}
     peerDependencies:
       vite: ^4
     dependencies:
       '@swc/core': 1.3.40
-      vite: 4.2.0
+      vite: 4.2.1
     dev: true
 
   /@vitest/coverage-c8/0.29.2_vitest@0.29.2:
@@ -7086,7 +7086,7 @@ packages:
       mlly: 1.2.0
       pathe: 1.1.0
       picocolors: 1.0.0
-      vite: 4.2.0_@types+node@18.14.6
+      vite: 4.2.1_@types+node@18.14.6
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -7107,7 +7107,7 @@ packages:
       mlly: 1.2.0
       pathe: 1.1.0
       picocolors: 1.0.0
-      vite: 4.2.0_@types+node@18.14.6
+      vite: 4.2.1_@types+node@18.14.6
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -7118,8 +7118,8 @@ packages:
       - terser
     dev: true
 
-  /vite/4.2.0:
-    resolution: {integrity: sha512-AbDTyzzwuKoRtMIRLGNxhLRuv1FpRgdIw+1y6AQG73Q5+vtecmvzKo/yk8X/vrHDpETRTx01ABijqUHIzBXi0g==}
+  /vite/4.2.1:
+    resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -7151,8 +7151,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite/4.2.0_@types+node@18.14.6:
-    resolution: {integrity: sha512-AbDTyzzwuKoRtMIRLGNxhLRuv1FpRgdIw+1y6AQG73Q5+vtecmvzKo/yk8X/vrHDpETRTx01ABijqUHIzBXi0g==}
+  /vite/4.2.1_@types+node@18.14.6:
+    resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -7228,7 +7228,7 @@ packages:
       tinybench: 2.4.0
       tinypool: 0.3.1
       tinyspy: 1.1.1
-      vite: 4.2.0_@types+node@18.14.6
+      vite: 4.2.1_@types+node@18.14.6
       vite-node: 0.29.2_@types+node@18.14.6
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
@@ -7283,7 +7283,7 @@ packages:
       tinybench: 2.4.0
       tinypool: 0.3.1
       tinyspy: 1.1.1
-      vite: 4.2.0_@types+node@18.14.6
+      vite: 4.2.1_@types+node@18.14.6
       vite-node: 0.29.3_@types+node@18.14.6
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
