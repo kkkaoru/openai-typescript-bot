@@ -1,5 +1,12 @@
 # @kkkaoru/slack-utils
 
+## 1.5.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @kkkaoru/openai-utils@1.1.4
+
 ## 1.5.6
 
 ### Patch Changes

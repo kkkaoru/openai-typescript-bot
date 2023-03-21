@@ -1,5 +1,11 @@
 # @kkkaoru/openai-utils
 
+## 1.1.4
+
+### Patch Changes
+
+- include dependencies in bot utils
+
 ## 1.1.3
 
 ### Patch Changes
