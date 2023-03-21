@@ -1,5 +1,11 @@
 # @kkkaoru/openai-utils
 
+## 1.1.5
+
+### Patch Changes
+
+- define default model
+
 ## 1.1.4
 
 ### Patch Changes

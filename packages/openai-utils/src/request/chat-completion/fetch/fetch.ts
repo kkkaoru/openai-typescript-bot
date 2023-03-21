@@ -2,6 +2,7 @@ import type { ChatCompletionRequestMessage, ConfigurationParameters } from 'open
 import { Loggers, removeNaNValues } from '@kkkaoru/bot-utils';
 import { ChatCompletionOptionalParameters } from '../../../types';
 import { createOpenAIClient } from '../../openai-client';
+import { DEFAULT_CHAT_COMPLETION_MODEL } from '../../../default';
 
 export type FetchChatCompletionArgs = {
   fetchParams: ChatCompletionOptionalParameters;
@@ -14,7 +15,7 @@ export async function fetchChatCompletion({
   clientParams,
   loggers,
 }: FetchChatCompletionArgs): Promise<string | undefined> {
-  const { systemMessageContent, model = 'gpt-3.5-turbo', messages, ...fetchRequestParams } = fetchParams;
+  const { systemMessageContent, model = DEFAULT_CHAT_COMPLETION_MODEL, messages, ...fetchRequestParams } = fetchParams;
   const client = createOpenAIClient({ ...clientParams });
   const systemMessage: ChatCompletionRequestMessage[] =
     typeof systemMessageContent === 'string' && systemMessageContent !== ''
