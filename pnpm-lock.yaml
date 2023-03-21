@@ -73,13 +73,13 @@ importers:
   packages/slack-utils:
     specifiers:
       '@kkkaoru/bot-utils': 1.0.3
-      '@kkkaoru/openai-utils': 1.1.5
+      '@kkkaoru/openai-utils': 1.1.2
       '@slack/bolt': 3.12.2
       '@slack/web-api': 6.8.1
       openai: 3.2.1
     dependencies:
       '@kkkaoru/bot-utils': link:../bot-utils
-      '@kkkaoru/openai-utils': link:../openai-utils
+      '@kkkaoru/openai-utils': 1.1.2_openai@3.2.1
     devDependencies:
       '@slack/bolt': 3.12.2
       '@slack/web-api': 6.8.1
@@ -1316,6 +1316,14 @@ packages:
       - supports-color
       - typescript
     dev: true
+
+  /@kkkaoru/openai-utils/1.1.2_openai@3.2.1:
+    resolution: {integrity: sha512-FCwEIH2QNczviGeep4gLYlYucW7FEhLdrl/fb0/rCK8cVW1CKXdxGUf5p6U3LTKnxd7aUfWWTOU146PrwOBrfQ==}
+    peerDependencies:
+      openai: ^3.2.1
+    dependencies:
+      openai: 3.2.1
+    dev: false
 
   /@kkkaoru/prettier-config/1.0.0:
     resolution: {integrity: sha512-xu7Ps0Y3QpL9i7EbFe8vgutnm7jt5HWHorbCdEwuoQNQdWyFIhv9bhRVtQHz/krEO+pkAC0J2vzjNDVlU2ckTw==}
