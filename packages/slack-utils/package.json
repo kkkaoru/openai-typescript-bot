@@ -33,7 +33,7 @@
   "keywords": [],
   "dependencies": {
     "@kkkaoru/openai-utils": "1.1.5",
-    "@kkkaoru/bot-utils": "1.0.3"
+    "@kkkaoru/bot-utils": "1.0.2"
   },
   "devDependencies": {
     "@slack/bolt": "3.12.2",

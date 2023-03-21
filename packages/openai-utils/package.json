@@ -36,7 +36,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "@kkkaoru/bot-utils": "1.0.3"
+    "@kkkaoru/bot-utils": "1.0.2"
   },
   "devDependencies": {
     "@slack/web-api": "6.8.1",
