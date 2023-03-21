@@ -1,5 +1,21 @@
 # @kkkaoru/slack-utils
 
+## 1.5.6
+
+### Patch Changes
+
+- use cut in ratio in bot utils
+
+- Updated dependencies []:
+  - @kkkaoru/openai-utils@1.1.3
+
+## 1.5.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @kkkaoru/bot-utils@1.0.3
+
 ## 1.5.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @kkkaoru/bot-utils
 
+## 1.0.3
+
+### Patch Changes
+
+- add cut util and remove nan values
+
 ## 1.0.2
 
 ### Patch Changes

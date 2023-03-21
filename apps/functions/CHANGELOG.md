@@ -5,6 +5,20 @@
 ### Patch Changes
 
 - Updated dependencies []:
+  - @kkkaoru/slack-utils@1.5.6
+
+## null
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @kkkaoru/slack-utils@1.5.5
+
+## null
+
+### Patch Changes
+
+- Updated dependencies []:
   - @kkkaoru/slack-utils@1.5.4
 
 ## null

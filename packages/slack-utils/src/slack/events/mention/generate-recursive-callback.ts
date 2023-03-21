@@ -1,6 +1,7 @@
 import type { ChatCompletionRequestMessage } from 'openai';
-import { cutMessages, fetchChatCompletion, FetchChatCompletionArgs } from '@kkkaoru/openai-utils';
+import { fetchChatCompletion, FetchChatCompletionArgs } from '@kkkaoru/openai-utils';
 import type { RecursiveCallback, Loggers } from '@kkkaoru/bot-utils';
+import { cutInRatio } from '@kkkaoru/bot-utils';
 import type { CustomTextMessage, MiddlewareMentionArgs, OpenAiProps } from '../../../types';
 
 export type GenerateRecursiveAnswerCallbackArgs = {
@@ -23,7 +24,7 @@ export function generateRecursiveAnswerCallback({
     if (retryCount === 1) {
       await say({ thread_ts: event.ts, text: thinkingText });
     }
-    const messages = retryCount >= 1 ? cutMessages(openaiMessages) : openaiMessages;
+    const messages = retryCount >= 1 ? cutInRatio(openaiMessages) : openaiMessages;
 
     const { apiKey, ...openaiParams } = openai;
     const fetchChatCompletionArgs: FetchChatCompletionArgs = {

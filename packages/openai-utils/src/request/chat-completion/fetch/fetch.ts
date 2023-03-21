@@ -1,8 +1,7 @@
 import type { ChatCompletionRequestMessage, ConfigurationParameters } from 'openai';
-import type { Loggers } from '@kkkaoru/bot-utils';
+import { Loggers, removeNaNValues } from '@kkkaoru/bot-utils';
 import { ChatCompletionOptionalParameters } from '../../../types';
 import { createOpenAIClient } from '../../openai-client';
-import { filterIsNaNValues } from '../../../messages';
 
 export type FetchChatCompletionArgs = {
   fetchParams: ChatCompletionOptionalParameters;
@@ -26,7 +25,7 @@ export async function fetchChatCompletion({
           },
         ]
       : [];
-  const filteredRequestParams = filterIsNaNValues(fetchRequestParams);
+  const filteredRequestParams = removeNaNValues(fetchRequestParams);
   const createChatCompletionArgs = {
     model,
     messages: [...systemMessage, ...messages],
