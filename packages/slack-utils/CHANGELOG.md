@@ -1,5 +1,18 @@
 # @kkkaoru/slack-utils
 
+## 1.5.4
+
+### Patch Changes
+
+- use order asc number in slack utils
+
+## 1.5.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @kkkaoru/bot-utils@1.0.2
+
 ## 1.5.2
 
 ### Patch Changes

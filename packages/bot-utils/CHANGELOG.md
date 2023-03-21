@@ -1,5 +1,11 @@
 # @kkkaoru/bot-utils
 
+## 1.0.2
+
+### Patch Changes
+
+- add sort utils
+
 ## 1.0.1
 
 ### Patch Changes
