@@ -8,7 +8,7 @@ importers:
       '@changesets/cli': 2.26.0
       '@kkkaoru/eslint-config': 1.0.5
       '@kkkaoru/prettier-config': 1.0.0
-      '@kkkaoru/tsconfig': 1.0.5
+      '@kkkaoru/tsconfig': 1.0.6
       '@kkkaoru/vitest-config': 1.0.0
       esbuild: 0.17.12
       turbo: 1.8.3
@@ -20,7 +20,7 @@ importers:
       '@changesets/cli': 2.26.0
       '@kkkaoru/eslint-config': 1.0.5_typescript@5.0.2
       '@kkkaoru/prettier-config': 1.0.0
-      '@kkkaoru/tsconfig': 1.0.5
+      '@kkkaoru/tsconfig': 1.0.6
       '@kkkaoru/vitest-config': 1.0.0_vite@4.2.1
       esbuild: 0.17.12
       turbo: 1.8.3
@@ -1323,10 +1323,10 @@ packages:
       prettier: 2.8.4
     dev: true
 
-  /@kkkaoru/tsconfig/1.0.5:
-    resolution: {integrity: sha512-yeaYC2h3dDHOHKvjxNou7yXPK3kV2SldVYAAr1fI6KocRCu9afMvGlTxvN2Ap8oPYaMBHKr8AAj97/hPb+VbJA==}
+  /@kkkaoru/tsconfig/1.0.6:
+    resolution: {integrity: sha512-KAoDZ8MW/8KheHibOSyJ38dR0UIXOzp0ZGPBmfXpYifzvwDDmPP/Ygu4M8fMlwOFAbnSA9nL9k7IrL2FQntDeg==}
     dependencies:
-      typescript: 4.9.5
+      typescript: 5.0.2
     dev: true
 
   /@kkkaoru/vitest-config/1.0.0_vite@4.2.1:
@@ -6984,12 +6984,6 @@ packages:
       call-bind: 1.0.2
       for-each: 0.3.3
       is-typed-array: 1.1.10
-
-  /typescript/4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: true
 
   /typescript/5.0.2:
     resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
