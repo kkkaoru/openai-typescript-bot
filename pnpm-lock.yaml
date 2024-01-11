@@ -33,7 +33,7 @@ importers:
       '@firebase/app-types': 0.9.0
       '@kkkaoru/openai-models': 1.1.1
       '@kkkaoru/slack-utils': 1.5.8
-      '@slack/bolt': 3.12.2
+      '@slack/bolt': 3.17.1
       firebase-admin: 11.5.0
       firebase-functions: 4.2.1
       firebase-functions-test: 3.0.0
@@ -42,7 +42,7 @@ importers:
     dependencies:
       '@kkkaoru/openai-models': link:../../packages/openai-models
       '@kkkaoru/slack-utils': link:../../packages/slack-utils
-      '@slack/bolt': 3.12.2
+      '@slack/bolt': 3.17.1
       firebase-admin: 11.5.0
       firebase-functions: 4.2.1_firebase-admin@11.5.0
       openai: 3.2.1
@@ -74,14 +74,14 @@ importers:
     specifiers:
       '@kkkaoru/bot-utils': 1.0.3
       '@kkkaoru/openai-utils': 1.1.5
-      '@slack/bolt': 3.12.2
+      '@slack/bolt': 3.17.1
       '@slack/web-api': 6.8.1
       openai: 3.2.1
     dependencies:
       '@kkkaoru/bot-utils': link:../bot-utils
       '@kkkaoru/openai-utils': link:../openai-utils
     devDependencies:
-      '@slack/bolt': 3.12.2
+      '@slack/bolt': 3.17.1
       '@slack/web-api': 6.8.1
       openai: 3.2.1
 
@@ -1472,21 +1472,21 @@ packages:
       '@sinonjs/commons': 2.0.0
     dev: true
 
-  /@slack/bolt/3.12.2:
-    resolution: {integrity: sha512-Rv5apx14Nx25ho7MHigZcmYG+P/TzKB4MEdY/UDM7ntCCmTBdRd5d+teERmGPNalFjz/tEfQ5bw+Z8zZjHIOXA==}
+  /@slack/bolt/3.17.1:
+    resolution: {integrity: sha512-N+4WxpkM59RXi7BL3IXUtENnn9cF7TOBn7ttaHpgvlnjUaro+yQyY60arXTlP4ytVDFJ1w0mSdfftcM17h+i2w==}
     engines: {node: '>=12.13.0', npm: '>=6.12.0'}
     dependencies:
-      '@slack/logger': 3.0.0
-      '@slack/oauth': 2.6.0
-      '@slack/socket-mode': 1.3.2
-      '@slack/types': 2.8.0
-      '@slack/web-api': 6.8.1
+      '@slack/logger': 4.0.0
+      '@slack/oauth': 2.6.2
+      '@slack/socket-mode': 1.3.3
+      '@slack/types': 2.11.0
+      '@slack/web-api': 6.11.2
       '@types/express': 4.17.17
-      '@types/node': 18.11.8
       '@types/promise.allsettled': 1.0.3
       '@types/tsscmp': 1.0.0
-      axios: 0.26.1
+      axios: 1.6.5
       express: 4.18.2
+      path-to-regexp: 6.2.1
       please-upgrade-node: 3.2.0
       promise.allsettled: 1.0.6
       raw-body: 2.5.2
@@ -1503,12 +1503,18 @@ packages:
     dependencies:
       '@types/node': 18.14.6
 
-  /@slack/oauth/2.6.0:
-    resolution: {integrity: sha512-t75jfYUoVVq4x9TnJrNn5VQRfr9n/3Fvuq3M6gf3URmKCvm/kQyZGp0Ff8AK/dzdYYWKDfSVD9GQImhF578MZA==}
+  /@slack/logger/4.0.0:
+    resolution: {integrity: sha512-Wz7QYfPAlG/DR+DfABddUZeNgoeY7d1J39OCR2jR+v7VBsB8ezulDK5szTnDDPDwLH5IWhLvXIHlCFZV7MSKgA==}
+    engines: {node: '>= 18', npm: '>= 8.6.0'}
+    dependencies:
+      '@types/node': 18.14.6
+
+  /@slack/oauth/2.6.2:
+    resolution: {integrity: sha512-2R3MyB/R63hTRXzk5J6wcui59TBxXzhk+Uh2/Xu3Wp3O4pXg/BNucQhP/DQbL/ScVhLvFtMXirLrKi0Yo5gIVw==}
     engines: {node: '>=12.13.0', npm: '>=6.12.0'}
     dependencies:
       '@slack/logger': 3.0.0
-      '@slack/web-api': 6.8.1
+      '@slack/web-api': 6.11.2
       '@types/jsonwebtoken': 8.5.9
       '@types/node': 18.14.6
       jsonwebtoken: 9.0.0
@@ -1516,12 +1522,12 @@ packages:
     transitivePeerDependencies:
       - debug
 
-  /@slack/socket-mode/1.3.2:
-    resolution: {integrity: sha512-6LiwYE6k4DNbnctZZSLfERiOzWngAvXogxQEYzUkxeZgh2GC6EdmRq6OEbZXOBe71/K66YVx05VfR7B4b1ScTQ==}
+  /@slack/socket-mode/1.3.3:
+    resolution: {integrity: sha512-vN3zG4woRtf2Ut6rZgRW6G/Oe56uLMlnz39I08Q7DOvVfB+1MmDbNv0PNOiFgujdKXJR+bXF41/F/VvryXcqlw==}
     engines: {node: '>=12.13.0', npm: '>=6.12.0'}
     dependencies:
       '@slack/logger': 3.0.0
-      '@slack/web-api': 6.8.1
+      '@slack/web-api': 6.11.2
       '@types/node': 18.14.6
       '@types/p-queue': 2.3.2
       '@types/ws': 7.4.7
@@ -1535,9 +1541,32 @@ packages:
       - debug
       - utf-8-validate
 
+  /@slack/types/2.11.0:
+    resolution: {integrity: sha512-UlIrDWvuLaDly3QZhCPnwUSI/KYmV1N9LyhuH6EDKCRS1HWZhyTG3Ja46T3D0rYfqdltKYFXbJSSRPwZpwO0cQ==}
+    engines: {node: '>= 12.13.0', npm: '>= 6.12.0'}
+
   /@slack/types/2.8.0:
     resolution: {integrity: sha512-ghdfZSF0b4NC9ckBA8QnQgC9DJw2ZceDq0BIjjRSv6XAZBXJdWgxIsYz0TYnWSiqsKZGH2ZXbj9jYABZdH3OSQ==}
     engines: {node: '>= 12.13.0', npm: '>= 6.12.0'}
+    dev: true
+
+  /@slack/web-api/6.11.2:
+    resolution: {integrity: sha512-s4qCQGXasr8jpCf/+6+V/smq+Z2RX7EIBnJeO/xe7Luie1nyBihFMgjICNyvzWoWBdaGntSnn5CcZdFm4ItBWg==}
+    engines: {node: '>= 12.13.0', npm: '>= 6.12.0'}
+    dependencies:
+      '@slack/logger': 3.0.0
+      '@slack/types': 2.11.0
+      '@types/is-stream': 1.1.0
+      '@types/node': 18.14.6
+      axios: 1.6.5
+      eventemitter3: 3.1.2
+      form-data: 2.5.1
+      is-electron: 2.2.2
+      is-stream: 1.1.0
+      p-queue: 6.6.2
+      p-retry: 4.6.2
+    transitivePeerDependencies:
+      - debug
 
   /@slack/web-api/6.8.1:
     resolution: {integrity: sha512-eMPk2S99S613gcu7odSw/LV+Qxr8A+RXvBD0GYW510wJuTERiTjP5TgCsH8X09+lxSumbDE88wvWbuFuvGa74g==}
@@ -1556,6 +1585,7 @@ packages:
       p-retry: 4.6.2
     transitivePeerDependencies:
       - debug
+    dev: true
 
   /@swc/core-darwin-arm64/1.3.40:
     resolution: {integrity: sha512-x4JHshTVB2o5xOedLL54/jsKkfUlsMw25tNM5fWkehiKWXlQuxEasl5/roceAFETWm8mEESuL8pWgZaiyTDl4Q==}
@@ -1841,9 +1871,6 @@ packages:
   /@types/node/12.20.55:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: true
-
-  /@types/node/18.11.8:
-    resolution: {integrity: sha512-uGwPWlE0Hj972KkHtCDVwZ8O39GmyjfMane1Z3GUBGGnkZ2USDq7SxLpVIiIHpweY9DS0QTDH0Nw7RNBsAAZ5A==}
 
   /@types/node/18.14.6:
     resolution: {integrity: sha512-93+VvleD3mXwlLI/xASjw0FzKcwzl3OdTCzm1LaRfqgS21gfFtK3zDXM5Op9TeeMsJVOaJ2VRDpT9q4Y3d0AvA==}
@@ -2348,8 +2375,18 @@ packages:
   /axios/0.27.2:
     resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
-      follow-redirects: 1.15.2
+      follow-redirects: 1.15.4
       form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
+  /axios/1.6.5:
+    resolution: {integrity: sha512-Ii012v05KEVuUoFWmMW/UQv9aRIc3ZwkWDcM+h5Il8izZCtRVpDUfwpoFf7eOtajT3QiGR4yDUx7lPqHJULgbg==}
+    dependencies:
+      follow-redirects: 1.15.4
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
 
@@ -3887,6 +3924,15 @@ packages:
       debug:
         optional: true
 
+  /follow-redirects/1.15.4:
+    resolution: {integrity: sha512-Cr4D/5wlrb0z9dgERpUL3LrmPKVDsETIJhaCMeDfuFYcqa5bldGV6wBsAN6X/vxlXQtFBMrXdXxdL8CbDTGniw==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
     dependencies:
@@ -4427,6 +4473,10 @@ packages:
 
   /is-electron/2.2.0:
     resolution: {integrity: sha512-SpMppC2XR3YdxSzczXReBjqs2zGscWQpBIKqwXYBFic0ERaxNVgwLCHwOLZeESfdJQjX0RDvrJ1lBXX2ij+G1Q==}
+    dev: true
+
+  /is-electron/2.2.2:
+    resolution: {integrity: sha512-FO/Rhvz5tuw4MCWkpMzHFKWD2LsfHzIb7i6MdPYZ/KW7AlxawyLkqdy+jPZP1WubqEADE3O4FUENlJHDfQASRg==}
 
   /is-extglob/2.1.1:
     resolution: {integrity: sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==}
@@ -5910,6 +5960,9 @@ packages:
   /path-to-regexp/0.1.7:
     resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
 
+  /path-to-regexp/6.2.1:
+    resolution: {integrity: sha512-JLyh7xT1kizaEvcaXOQwOc2/Yhw6KZOvPf1S8401UyLk86CU79LN3vl7ztXGm/pZ+YjoyAJ4rxmHwbkBXJX+yw==}
+
   /path-type/4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
@@ -6099,6 +6152,9 @@ packages:
     dependencies:
       forwarded: 0.2.0
       ipaddr.js: 1.9.1
+
+  /proxy-from-env/1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
   /pseudomap/1.0.2:
     resolution: {integrity: sha512-b/YwNhb8lk1Zz2+bXXpS/LK9OisiZZ1SNsSLxN1x2OXVEhW2Ckr/7mWE5vrC1ZTiJlD9g19jWszTmJsB+oEpFQ==}
