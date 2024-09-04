@@ -1,5 +1,11 @@
 # @kkkaoru/openai-models
 
+## 1.2.1
+
+### Patch Changes
+
+- fix open ai models
+
 ## 1.2.0
 
 ### Minor Changes

@@ -19,5 +19,13 @@ export const openAIModels = [...openAIGpt4Models, ...openAIGpt3_5Models] as cons
 
 export type OpenAiGpt4Model = (typeof openAIGpt4Models)[number];
 export type OpenAiGpt3_5Model = (typeof openAIGpt3_5Models)[number];
+export type OpenAiGpt4oModel = (typeof openAIGpt4oModels)[number];
+export type openAIGpt4oMiniModels = (typeof openAIGpt4oModels)[number];
+export type OpenAiGpt4turboModel = (typeof openAIGpt4oTurboModels)[number];
 
-export type OpenAiModel = OpenAiGpt4Model | OpenAiGpt3_5Model;
+export type OpenAiModel =
+  | OpenAiGpt4oModel
+  | openAIGpt4oMiniModels
+  | OpenAiGpt4turboModel
+  | OpenAiGpt4Model
+  | OpenAiGpt3_5Model;
