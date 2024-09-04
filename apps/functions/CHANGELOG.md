@@ -5,6 +5,13 @@
 ### Patch Changes
 
 - Updated dependencies []:
+  - @kkkaoru/slack-utils@1.5.9
+
+## null
+
+### Patch Changes
+
+- Updated dependencies []:
   - @kkkaoru/openai-models@1.2.0
 
 ## null
