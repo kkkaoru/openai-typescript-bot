@@ -1,5 +1,11 @@
 # @kkkaoru/openai-models
 
+## 1.2.2
+
+### Patch Changes
+
+- fix typesafe
+
 ## 1.2.1
 
 ### Patch Changes

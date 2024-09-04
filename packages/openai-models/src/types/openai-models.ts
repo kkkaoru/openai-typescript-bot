@@ -15,12 +15,18 @@ export const openAIGpt3_5Models = [
   'gpt-3.5-turbo-1106',
   'gpt-3.5-turbo-instruct',
 ] as const;
-export const openAIModels = [...openAIGpt4Models, ...openAIGpt3_5Models] as const;
+export const openAIModels = [
+  ...openAIGpt4oModels,
+  ...openAIGpt4oMiniModels,
+  ...openAIGpt4oTurboModels,
+  ...openAIGpt4Models,
+  ...openAIGpt3_5Models,
+] as const;
 
 export type OpenAiGpt4Model = (typeof openAIGpt4Models)[number];
 export type OpenAiGpt3_5Model = (typeof openAIGpt3_5Models)[number];
 export type OpenAiGpt4oModel = (typeof openAIGpt4oModels)[number];
-export type openAIGpt4oMiniModels = (typeof openAIGpt4oModels)[number];
+export type openAIGpt4oMiniModels = (typeof openAIGpt4oMiniModels)[number];
 export type OpenAiGpt4turboModel = (typeof openAIGpt4oTurboModels)[number];
 
 export type OpenAiModel =
