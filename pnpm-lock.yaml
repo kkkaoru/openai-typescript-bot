@@ -99,8 +99,8 @@ importers:
         specifier: 1.0.3
         version: 1.0.3
       '@kkkaoru/openai-utils':
-        specifier: 1.1.5
-        version: 1.1.5(openai@3.2.1)
+        specifier: 1.1.6
+        version: 1.1.6(openai@3.2.1)
     devDependencies:
       '@slack/bolt':
         specifier: 3.12.2
@@ -675,6 +675,11 @@ packages:
 
   '@kkkaoru/openai-utils@1.1.5':
     resolution: {integrity: sha512-mcGfWw8Mb31SINVcO+vbAWNp6XMYkoyg4cLVIh6QASiWqzcaYpW/euTsLezCQeFD8jPK3Sfym4a9c1ehepn2ig==}
+    peerDependencies:
+      openai: ^3.2.1
+
+  '@kkkaoru/openai-utils@1.1.6':
+    resolution: {integrity: sha512-L5rcNXEDJHpXdJgsUxIhnUv1q7rXG8oEqIVPZ2KC6a9Z196PH9d65gMqcwoKY0Pi6proX7ts9zG5ajkCBgapoQ==}
     peerDependencies:
       openai: ^3.2.1
 
@@ -4968,6 +4973,11 @@ snapshots:
   '@kkkaoru/openai-models@1.2.2': {}
 
   '@kkkaoru/openai-utils@1.1.5(openai@3.2.1)':
+    dependencies:
+      '@kkkaoru/bot-utils': 1.0.3
+      openai: 3.2.1
+
+  '@kkkaoru/openai-utils@1.1.6(openai@3.2.1)':
     dependencies:
       '@kkkaoru/bot-utils': 1.0.3
       openai: 3.2.1
