@@ -1,5 +1,11 @@
 # @kkkaoru/openai-utils
 
+## 1.1.6
+
+### Patch Changes
+
+- [`5cede6e`](https://github.com/kkkaoru/openai-typescript-bot/commit/5cede6eab68ec1763aac99a496d336bd2e90c9f2) Thanks [@kkkaoru](https://github.com/kkkaoru)! - update openai model
+
 ## 1.1.5
 
 ### Patch Changes

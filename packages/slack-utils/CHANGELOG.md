@@ -1,5 +1,12 @@
 # @kkkaoru/slack-utils
 
+## 1.5.9
+
+### Patch Changes
+
+- Updated dependencies [[`5cede6e`](https://github.com/kkkaoru/openai-typescript-bot/commit/5cede6eab68ec1763aac99a496d336bd2e90c9f2)]:
+  - @kkkaoru/openai-utils@1.1.6
+
 ## 1.5.8
 
 ### Patch Changes
