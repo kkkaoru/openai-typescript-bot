@@ -45,8 +45,8 @@ importers:
   apps/functions:
     dependencies:
       '@kkkaoru/openai-models':
-        specifier: 1.1.1
-        version: 1.1.1
+        specifier: 1.1.0
+        version: 1.1.0
       '@kkkaoru/slack-utils':
         specifier: 1.5.8
         version: 1.5.8(@slack/bolt@3.12.2)(openai@3.2.1)
@@ -84,8 +84,8 @@ importers:
         version: 1.0.3
     devDependencies:
       '@kkkaoru/openai-models':
-        specifier: 1.1.1
-        version: 1.1.1
+        specifier: 1.1.0
+        version: 1.1.0
       '@slack/web-api':
         specifier: 6.8.1
         version: 6.8.1
@@ -667,8 +667,8 @@ packages:
   '@kkkaoru/eslint-config@1.0.5':
     resolution: {integrity: sha512-J+C+EQgDECRAqe6H7F4+OpcQEF4TfScpf0H6fl1ZwVM2NljMnnbx/GXk1KYtW7TTvtkjMTGMA00xz2yZW+PFZg==}
 
-  '@kkkaoru/openai-models@1.1.1':
-    resolution: {integrity: sha512-lafnsavmk0Cd6i2Yo6uL6ZuZHaqq/FKNfH4GYJgQ47ZRyEElWAzXeQDOmIEdMk73JiQUukkGwkxyg7hVpV8odw==}
+  '@kkkaoru/openai-models@1.1.0':
+    resolution: {integrity: sha512-Khf+l4XPsv+/XLy/t/Kw7YgdMxkbBjYttlfWO0hHi86QbY6+FxwlFeddTnCzZuZG1JN4oKlQpyNsGfxqkMpFaQ==}
 
   '@kkkaoru/openai-utils@1.1.5':
     resolution: {integrity: sha512-mcGfWw8Mb31SINVcO+vbAWNp6XMYkoyg4cLVIh6QASiWqzcaYpW/euTsLezCQeFD8jPK3Sfym4a9c1ehepn2ig==}
@@ -4960,7 +4960,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@kkkaoru/openai-models@1.1.1': {}
+  '@kkkaoru/openai-models@1.1.0': {}
 
   '@kkkaoru/openai-utils@1.1.5(openai@3.2.1)':
     dependencies:
