@@ -26,7 +26,7 @@
     "@changesets/cli": "2.26.0",
     "@kkkaoru/eslint-config": "1.0.5",
     "@kkkaoru/prettier-config": "1.0.0",
-    "@kkkaoru/tsconfig": "1.0.5",
+    "@kkkaoru/tsconfig": "1.0.6",
     "@kkkaoru/vitest-config": "1.0.0",
     "esbuild": "0.17.12",
     "turbo": "1.8.3",
